@@ -1,12 +1,10 @@
 import styled from 'styled-components';
 import Navbar from './Navbar';
 
-const Header = () => {
+const Header = (): JSX.Element => {
   return (
     <Wrapper>
-      <Inner>
-        <Navbar />
-      </Inner>
+      <Navbar />
     </Wrapper>
   );
 };
@@ -14,12 +12,6 @@ const Header = () => {
 export default Header;
 
 const Wrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  background-color: var(--bg-color);
-`;
-
-const Inner = styled.div`
   display: flex;
   flex-direction: column;
   width: 95%;

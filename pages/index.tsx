@@ -1,4 +1,4 @@
-import { Header } from '@/components/UI';
+import { Banner, Header } from '@/components/UI';
 import Head from 'next/head';
 import styled from 'styled-components';
 
@@ -11,9 +11,15 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main>
-       <Header />
-      </main>
+      <Main>
+        <Header />
+        <Banner />
+      </Main>
     </>
   );
 }
+
+const Main = styled.main`
+  min-height: 100vh;
+  background-color: var(--bg-color);
+`;

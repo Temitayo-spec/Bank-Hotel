@@ -1,13 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyle = createGlobalStyle`
-@font-face {
-  font-family: 'Miracle', sans-serif;
-  src: url('/fonts/Miracle.otf') format('otf');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
 :root {
   //font family
   --font-primary: 'Helvetica Neue LT Std', 'Helvetica Neue', Helvetica, Arial, sans-serif;
