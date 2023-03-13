@@ -28,7 +28,9 @@ const Navbar = () => {
           </li>
         </ul>
       </Nav>
-      <Contact>+38 032 297 50 20</Contact>
+      <Contact>
+        <h3>+38 032 297 50 20</h3>
+      </Contact>
     </Wrapper>
   );
 };
@@ -39,56 +41,59 @@ const Wrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 20px;
-  background-color: #fff;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 100;
 `;
 
 const Logo = styled.div`
   display: flex;
   align-items: center;
-  padding: 10px 0;
+  flex: 1;
 `;
 
 const H2 = styled.h2`
   font-family: var(--font-primary);
   font-size: var(--font-size-xl);
   font-weight: var(--font-weight-medium);
-  color: var(--color-primary);
+  color: var(--text-color-primary);
 `;
 
 const Nav = styled.nav`
+  flex: 2;
+  width: 100%;
+
   ul {
+    width: 100%;
     display: flex;
+    justify-content: space-between;
     list-style: none;
     margin: 0;
     padding: 0;
-  }
 
-  li {
-    margin: 0 10px;
-  }
+    li {
+      margin: 0 10px;
 
-  a {
-    font-family: var(--font-primary);
-    font-size: var(--font-size-sm);
-    font-weight: var(--font-weight-normal);
-    color: var(--color-primary);
+      a {
+        font-family: var(--font-primary);
+        font-size: var(--font-size-sm);
+        font-weight: var(--font-weight-normal);
+        color: var(--text-color-primary);
+        text-transform: uppercase;
 
-    &:hover {
-      color: var(--color-secondary);
+        &:hover {
+          color: var(--text-color-secondary);
+        }
+      }
     }
   }
 `;
 
 const Contact = styled.div`
-  font-family: var(--font-primary);
-  font-size: var(--font-size-md);
-  font-weight: var(--font-weight-medium);
-  color: var(--color-primary);
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  h3 {
+    font-family: var(--font-primary);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-normal);
+    color: var(--text-color-primary);
+  }
 `;

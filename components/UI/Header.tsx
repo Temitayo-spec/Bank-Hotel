@@ -22,7 +22,7 @@ const Wrapper = styled.div`
 const Inner = styled.div`
   display: flex;
   flex-direction: column;
-  width: 90%;
+  width: 95%;
   margin: 0 auto;
   padding: 20px 0;
 `;
