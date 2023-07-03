@@ -42,9 +42,7 @@ const Wrapper = styled.div`
   margin: 4em 0 0 0;
 `;
 
-const Inner = styled.div`
-
-`;
+const Inner = styled.div``;
 
 const TextContainer = styled.div`
   width: 95%;
