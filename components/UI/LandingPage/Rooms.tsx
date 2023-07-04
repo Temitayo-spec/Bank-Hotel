@@ -60,10 +60,10 @@ const Wrapper = styled.div`
   width: 100%;
   height: 100%;
   background: var(--text-color-primary, #fffcf6);
-  padding: 10em 0;
 `;
 
 const Inner = styled.div`
+  padding: 10em 0;
   width: 95%;
   margin: 0 auto;
   display: flex;
@@ -71,6 +71,7 @@ const Inner = styled.div`
   justify-content: center;
   align-items: center;
   gap: 2em;
+  border-bottom: 1px solid #d6e1dc;
 `;
 
 const Header = styled.header`
