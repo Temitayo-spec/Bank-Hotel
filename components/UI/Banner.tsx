@@ -2,6 +2,7 @@ import Image from 'next/image';
 import styled from 'styled-components';
 import star from '@/public/svgs/ic-star.svg';
 import button_default from '@/public/images/button_default.png';
+import BannerImg from './BannerImg';
 
 const Banner = (): JSX.Element => {
   return (
@@ -30,6 +31,7 @@ const Banner = (): JSX.Element => {
             </Bottom>
           </RHS>
         </TextContainer>
+        <BannerImg />
       </Inner>
     </Wrapper>
   );
@@ -61,7 +63,7 @@ const LHS = styled.div`
   h1 {
     font-family: var(--font-secondary);
     font-weight: var(--font-weight-normal);
-    font-size: 11rem;
+    font-size: 10.625rem;
     color: var(--text-color-primary);
     line-height: 200px;
     margin-bottom: 3rem;
@@ -95,7 +97,6 @@ const Top = styled.div`
 `;
 
 const Year = styled.div`
-  width: 249px;
   height: 70px;
   display: flex;
   justify-content: center;
@@ -103,6 +104,7 @@ const Year = styled.div`
   border: 1px solid #fffcf6;
   border-radius: 99px;
   gap: 1.5em;
+  padding: 0 1.5em;
 
   span {
     font-family: var(--font-primary);
@@ -117,9 +119,10 @@ const Bottom = styled.div`
   p {
     font-family: var(--font-primary);
     font-weight: var(--font-weight-normal);
-    font-size: var(--font-size-lg);
-    line-height: 28px;
+    font-size: var(--font-size-md);
+    line-height: 1.625rem;
     color: var(--text-color-primary);
     opacity: 0.8;
+    width: 85%;
   }
 `;
