@@ -15,7 +15,10 @@ interface ParallaxProps {
   baseVelocity: number;
 }
 
-function ParallaxText({ children, baseVelocity = 100 }: ParallaxProps) {
+export const ParallaxText = ({
+  children,
+  baseVelocity = 100,
+}: ParallaxProps) => {
   const baseX = useMotionValue(0);
   const { scrollY } = useScroll();
   const scrollVelocity = useVelocity(scrollY);
@@ -70,6 +73,4 @@ function ParallaxText({ children, baseVelocity = 100 }: ParallaxProps) {
       </motion.div>
     </div>
   );
-}
-
-export default ParallaxText;
+};
