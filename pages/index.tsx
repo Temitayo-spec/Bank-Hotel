@@ -1,4 +1,4 @@
-import { AboutUs, Banner, Header, OurFacilities, Rooms } from '@/components/UI';
+import { AboutUs, Banner, BestApartment, Header, OurFacilities, Rooms } from '@/components/UI';
 import Head from 'next/head';
 import styled from 'styled-components';
 
@@ -17,6 +17,7 @@ export default function Home() {
         <AboutUs />
         <Rooms />
         <OurFacilities />
+        <BestApartment />
       </Main>
     </>
   );
