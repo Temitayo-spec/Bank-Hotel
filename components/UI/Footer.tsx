@@ -1,7 +1,178 @@
+import Image from 'next/image';
 import styled from 'styled-components';
+import ic_arrow_small from '@/public/svgs/ic_arrow_small.svg';
 
 const Footer = (): JSX.Element => {
-  return <div>Footer</div>;
+  return (
+    <Wrapper>
+      <Inner>
+        <AboutUsCtn>
+          <MainText>
+            <h2>About us</h2>
+            <p>
+              The five-star hotel in a beautiful European city with a modern
+              restaurant, conference-hall, and art-bar.
+            </p>
+          </MainText>
+          <SubText>©2021 All rights reserved. BankHotel</SubText>
+        </AboutUsCtn>
+        <News>
+          <h2>News</h2>
+          <p>
+            Sign up to our newsletter not to miss exclusive offers and
+            information about the upcoming events.
+          </p>
+          <InputCtn>
+            <input type="text" placeholder="Email" />
+            <Image src={ic_arrow_small} alt="arrow" />
+          </InputCtn>
+        </News>
+        <Socials>
+          <h2>Social</h2>
+          <ul>
+            <li>Facebook</li>
+            <li>Instagram</li>
+            <li>Twitter</li>
+          </ul>
+        </Socials>
+      </Inner>
+    </Wrapper>
+  );
 };
 
 export default Footer;
+
+const Wrapper = styled.footer`
+  width: 100%;
+  background-color: var(--text-color-primary);
+  height: 60vh;
+`;
+
+const Inner = styled.div`
+  width: 95%;
+  margin: 0 auto;
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 4em;
+  padding: 5em 0;
+`;
+
+const AboutUsCtn = styled.div`
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+`;
+
+const MainText = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  font-family: var(--font-primary);
+  font-weight: var(--font-weight-normal);
+  color: var(--text-color-tertiary, #1b3b36);
+  h2 {
+    font-size: 1.625rem;
+    text-transform: uppercase;
+  }
+
+  p {
+    font-size: 1rem;
+    line-height: 1.75rem;
+    opacity: 0.8;
+  }
+`;
+
+const SubText = styled.p`
+  color: var(--text-color-tertiary, #1b3b36);
+  font-family: var(--font-primary);
+  font-weight: var(--font-weight-normal);
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  opacity: 0.24;
+`;
+
+const News = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  font-family: var(--font-primary);
+  font-weight: var(--font-weight-normal);
+  color: var(--text-color-tertiary, #1b3b36);
+  h2 {
+    font-size: 1.625rem;
+    text-transform: uppercase;
+  }
+
+  p {
+    font-size: 1rem;
+    line-height: 1.75rem;
+    opacity: 0.8;
+  }
+`;
+
+const InputCtn = styled.div`
+  width: 100%;
+  height: 2.5rem;
+  position: relative;
+
+  input {
+    position: relative;
+    width: 100%;
+    height: 4rem;
+    padding: 1em;
+    background-color: var(--text-color-primary);
+    outline: none;
+    border: 1px solid #313f38;
+    opacity: 0.64;
+    backdrop-filter: blur(20px);
+    font-family: var(--font-primary);
+    font-size: 1rem;
+    font-weight: var(--font-weight-normal);
+
+    &::placeholder {
+      color: var(--text-color-tertiary, #1b3b36);
+      font-family: var(--font-primary);
+      font-size: 1rem;
+      font-weight: var(--font-weight-normal);
+      line-height: 1.25rem;
+      text-transform: uppercase;
+      opacity: 0.5;
+    }
+  }
+
+  img {
+    position: absolute;
+    top: 50%;
+    right: 1em;
+    cursor: pointer;
+  }
+`;
+
+const Socials = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  font-family: var(--font-primary);
+  font-weight: var(--font-weight-normal);
+  color: var(--text-color-tertiary, #1b3b36);
+
+  h2 {
+    font-size: 1.625rem;
+    text-transform: uppercase;
+  }
+
+  ul {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    li {
+      font-size: 1rem;
+      font-weight: 500;
+      line-height: 1.25rem;
+      text-transform: uppercase;
+      margin-right: 1em;
+    }
+  }
+`;
