@@ -83,12 +83,26 @@ const ButtonContainer = styled.div`
   display: flex;
   justify-content: flex-end;
   align-items: flex-end;
+  width: 100%;
 
   button {
-    width: 23.125rem;
+    width: 25%;
     height: 7.8125rem;
     display: flex;
     cursor: pointer;
+    font-size: var(--font-size-md);
+    font-family: var(--font-primary);
+    font-weight: var(--font-weight-medium);
+  }
+
+  @media (min-width: 768px) and (max-width: 1024px) {
+    bottom: 0;
+
+    button {
+      width: 30%;
+      height: 5rem;
+      font-size: 0.75rem;
+    }
   }
 `;
 
@@ -97,9 +111,6 @@ const CheckInBtn = styled.button`
   background: rgba(49, 63, 56, 0.48);
   backdrop-filter: blur(20px);
   color: var(--text-color-primary, #fffcf6);
-  font-size: var(--font-size-md);
-  font-family: var(--font-primary);
-  font-weight: var(--font-weight-medium);
   line-height: 1.25rem;
   text-transform: uppercase;
   padding: 0 1.5rem;
@@ -114,9 +125,6 @@ const CheckOutBtn = styled.button`
   background: rgba(49, 63, 56, 0.48);
   backdrop-filter: blur(20px);
   color: var(--text-color-primary, #fffcf6);
-  font-size: var(--font-size-md);
-  font-family: var(--font-primary);
-  font-weight: var(--font-weight-medium);
   line-height: 1.25rem;
   text-transform: uppercase;
   padding: 0 1.5rem;
@@ -130,8 +138,6 @@ const BookRoom = styled.button`
   color: var(--text-color-tertiary, #1b3b36);
   text-align: center;
   font-size: var(--font-size-lg);
-  font-family: var(--font-primary);
-  font-weight: var(--font-weight-medium);
   line-height: 1.25rem;
   text-transform: uppercase;
   padding: 0 1.5rem;
@@ -166,6 +172,12 @@ const Contact = styled.div`
   h3:last-child {
     color: var(--text-color-primary, #fffcf6);
   }
+
+  @media (min-width: 768px) and (max-width: 1024px) {
+    h3 {
+      font-size: 1.125rem;
+    }
+  }
 `;
 
 const Suite = styled.div`
@@ -187,5 +199,12 @@ const Suite = styled.div`
     font-family: var(--font-primary);
     font-weight: var(--font-weight-normal);
     text-transform: uppercase;
+  }
+
+  @media (min-width: 768px) and (max-width: 1024px) {
+    h3,
+    span {
+      font-size: 1rem;
+    }
   }
 `;

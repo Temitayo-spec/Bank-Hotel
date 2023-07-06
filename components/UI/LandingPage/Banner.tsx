@@ -53,6 +53,10 @@ const TextContainer = styled.div`
   display: flex;
   justify-content: space-between;
   gap: 1rem;
+
+  @media (min-width: 768px) and (max-width: 1024px) {
+    height: 20vh;
+  }
 `;
 
 const LHS = styled.div`
@@ -81,6 +85,19 @@ const LHS = styled.div`
     text-transform: uppercase;
     color: #fcd043;
   }
+  @media (min-width: 768px) and (max-width: 1024px) {
+    flex: 2;
+    h1 {
+      font-size: 6.25rem;
+      margin: 0;
+      line-height: normal;
+    }
+
+    p {
+      font-size: 0.875rem;
+      line-height: normal;
+    }
+  }
 `;
 
 const RHS = styled.div`
@@ -88,12 +105,25 @@ const RHS = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+
+  @media (min-width: 768px) and (max-width: 1024px) {
+    width: 100%;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 2em;
+  }
 `;
 
 const Top = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  img {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+  }
 `;
 
 const Year = styled.div`
@@ -113,6 +143,10 @@ const Year = styled.div`
     text-transform: capitalize;
     color: #fffcf6;
   }
+
+  @media (min-width: 768px) and (max-width: 1024px) {
+    display: none;
+  }
 `;
 
 const Bottom = styled.div`
@@ -124,5 +158,11 @@ const Bottom = styled.div`
     color: var(--text-color-primary);
     opacity: 0.8;
     width: 85%;
+
+    @media (min-width: 768px) and (max-width: 1024px) {
+      font-size: 0.8125rem;
+      line-height: 1.4375rem;
+      width: 100%;
+    }
   }
 `;

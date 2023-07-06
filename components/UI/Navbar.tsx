@@ -81,7 +81,7 @@ const Logo = styled.div`
     display: none;
   }
 
-  @media (max-width: 768px) and (min-width: 320px) {
+  @media (max-width: 1024px) and (min-width: 320px) {
     width: 100%;
     img {
       display: block;
@@ -106,7 +106,7 @@ const Nav = styled.nav`
   justify-content: space-between;
   transition: all 0.5s ease-in-out;
 
-  @media (max-width: 768px) and (min-width: 320px) {
+  @media (max-width: 1024px) and (min-width: 320px) {
     position: fixed;
     right: 0;
     top: 0;
@@ -159,7 +159,7 @@ const Nav = styled.nav`
     @keyframes slideOut {
       0% {
         width: 375px;
-        border-radius: 1000px 0 0 1000px;
+        border-radius: 100px 0 0 100px;
       }
       100% {
         width: 0;
@@ -193,18 +193,18 @@ const Nav = styled.nav`
           color: var(--text-color-secondary);
         }
 
-        @media (max-width: 768px) and (min-width: 320px) {
+        @media (max-width: 1024px) and (min-width: 320px) {
           font-size: 1.875rem;
           font-weight: 400;
         }
       }
 
-      @media (max-width: 768px) and (min-width: 320px) {
+      @media (max-width: 1024px) and (min-width: 320px) {
         margin: 0 0 10px 20px;
       }
     }
 
-    @media (max-width: 768px) and (min-width: 320px) {
+    @media (max-width: 1024px) and (min-width: 320px) {
       flex-direction: column;
       justify-content: center;
       margin-top: 80px;
@@ -232,12 +232,12 @@ const Contact = styled.div`
     text-transform: uppercase;
     display: none;
 
-    @media (max-width: 768px) and (min-width: 320px) {
+    @media (max-width: 1024px) and (min-width: 320px) {
       display: block;
     }
   }
 
-  @media (max-width: 768px) and (min-width: 320px) {
+  @media (max-width: 1024px) and (min-width: 320px) {
     flex-direction: column;
     gap: 20px;
     justify-content: center;
@@ -289,7 +289,7 @@ const Socials = styled.div`
     }
   }
 
-  @media (max-width: 768px) and (min-width: 320px) {
+  @media (max-width: 1024px) and (min-width: 320px) {
     display: flex;
   }
 `;
