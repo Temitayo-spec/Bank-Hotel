@@ -62,3 +62,10 @@ a {
   display: flex;
   margin-right: 30px;
 }
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .parallax .scroller {
+    font-size: 3.75rem;
+    line-height: 5rem;
+  }
+}

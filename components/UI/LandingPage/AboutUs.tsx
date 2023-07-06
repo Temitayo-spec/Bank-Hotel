@@ -45,7 +45,7 @@ export default AboutUs;
 const Wrapper = styled.div`
   width: 100%;
   height: 100%;
-  padding: 1em 0;
+  padding: 1em 0 5em;
   background: url(${about_us_lines.src}) no-repeat;
 `;
 
@@ -94,6 +94,12 @@ const TitleCtn = styled.div`
   h1:last-child {
     color: var(--text-color-primary, #fffcf6);
   }
+
+  @media (min-width: 768px) and (max-width: 1024px) {
+    h1 {
+      font-size: 6rem;
+    }
+  }
 `;
 
 const SubtitleCtn = styled.div`
@@ -113,6 +119,15 @@ const SubtitleCtn = styled.div`
     font-family: var(--font-primary);
     font-weight: var(--font-weight-normal);
     opacity: 0.64;
+  }
+
+  @media (min-width: 768px) and (max-width: 1024px) {
+    h3 {
+      font-size: 1.5rem;
+    }
+    p {
+      font-size: 0.8125rem;
+    }
   }
 `;
 
@@ -155,5 +170,11 @@ const MainImgCtn = styled.div`
     width: 100%;
     height: 100%;
     object-fit: contain;
+  }
+
+  @media (min-width: 768px) and (max-width: 1024px) {
+    img:nth-child(1) {
+      width: 60%;
+    }
   }
 `;

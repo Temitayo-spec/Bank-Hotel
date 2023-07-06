@@ -79,6 +79,7 @@ const Header = styled.header`
   display: grid;
   grid-template-columns: 2.5fr 1fr;
   color: var(--text-color-tertiary, #1b3b36);
+  margin-bottom: 6em;
   h1 {
     font-size: 7.8125rem;
     font-family: var(--font-secondary);
@@ -92,6 +93,16 @@ const Header = styled.header`
     font-family: var(--font-primary);
     font-weight: var(--font-weight-normal);
     text-transform: uppercase;
+  }
+
+  @media (min-width: 768px) and (max-width: 1024px) {
+    h1 {
+      font-size: 5.625rem;
+    }
+
+    p {
+      font-size: 1rem;
+    }
   }
 `;
 
@@ -112,6 +123,10 @@ const Year = styled.div`
     text-transform: capitalize;
     color: var(--text-color-tertiary, #1b3b36);
   }
+
+  @media (min-width: 768px) and (max-width: 1024px) {
+    display: none;
+  }
 `;
 
 const Main = styled.div`
@@ -119,12 +134,24 @@ const Main = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 2em;
+  height: 70vh;
 `;
 
 const LHS = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+
+  @media (min-width: 768px) and (max-width: 1024px) {
+    img:first-child {
+      display: none;
+    }
+
+    img:last-child {
+      width: 6.5625rem;
+      height: 6.5625rem;
+    }
+  }
 `;
 
 const Middle = styled.div`
@@ -156,6 +183,13 @@ const MidTextCtn = styled.div`
     font-weight: 400;
     line-height: 1.75rem;
   }
+
+  @media (min-width: 768px) and (max-width: 1024px) {
+    p {
+      font-size: 0.8125rem;
+      line-height: 1.4375rem;
+    }
+  }
 `;
 
 const RoomOf = styled.div`
@@ -174,6 +208,10 @@ const RoomOf = styled.div`
 
   span:last-child {
     opacity: 0.5;
+  }
+
+  @media (min-width: 768px) and (max-width: 1024px) {
+    font-size: 1rem;
   }
 `;
 
@@ -203,5 +241,16 @@ const BookRoomBtn = styled.button`
     font-size: 1.125rem;
     font-family: var(--font-primary);
     position: absolute;
+  }
+
+  @media (min-width: 768px) and (max-width: 1024px) {
+    bottom: 1em;
+    img {
+      width: 70%;
+    }
+
+    span {
+      font-size: 1rem;
+    }
   }
 `;

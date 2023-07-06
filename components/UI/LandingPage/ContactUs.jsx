@@ -31,7 +31,7 @@ const ContactUs = () => {
         </AbsoluteImages>
 
         <FindRoomCtn>
-          <h2>Find Room</h2>
+          <h2>Find a Room</h2>
           <ButtonContainer>
             <CheckInBtn type="button">
               <span>Check In</span>
@@ -95,6 +95,11 @@ const ContactNumber = styled.div`
   font-size: 3.125rem;
   font-weight: var(--font-weight-normal);
   line-height: 3.125rem;
+
+  @media (min-width: 768px) and (max-width: 1024px) {
+    font-size: 2rem;
+    text-decoration: underline;
+  }
 `;
 
 const ContactAddress = styled.div`
@@ -107,6 +112,12 @@ const ContactAddress = styled.div`
     font-size: var(--font-size-lg);
     font-weight: var(--font-weight-normal);
     text-transform: uppercase;
+  }
+
+  @media (min-width: 768px) and (max-width: 1024px) {
+    p {
+      font-size: 1.125rem;
+    }
   }
 `;
 
@@ -138,6 +149,13 @@ const LargeText = styled.div`
     color: var(--text-color-secondary, #fcd043);
     z-index: 5;
   }
+
+  @media (min-width: 768px) and (max-width: 1024px) {
+    h1 {
+      font-size: 9.375rem;
+      line-height: 9.375rem;
+    }
+  }
 `;
 
 const AbsoluteImages = styled.div`
@@ -158,6 +176,16 @@ const AbsoluteImages = styled.div`
       top: 100px;
       margin-left: -60px;
     }
+
+    @media (min-width: 768px) and (max-width: 1024px) {
+      &:first-child {
+        top: 300px;
+      }
+
+      &:last-child {
+        top: 30px;
+      }
+    }
   }
 `;
 
@@ -173,6 +201,12 @@ const FindRoomCtn = styled.div`
     font-weight: var(--font-weight-normal);
     text-transform: uppercase;
   }
+
+  @media (min-width: 768px) and (max-width: 1024px) {
+    h2 {
+      font-size: 1.125rem;
+    }
+  }
 `;
 
 const ButtonContainer = styled.div`
@@ -187,6 +221,12 @@ const ButtonContainer = styled.div`
     img {
       width: 1em;
       height: 1em;
+    }
+
+    @media (min-width: 768px) and (max-width: 1024px) {
+      font-size: 0.875rem;
+      height: 6rem;
+      width: 25%;
     }
   }
 `;
@@ -221,6 +261,7 @@ const CheckOutBtn = styled.button`
   justify-content: space-between;
   align-items: center;
   border-left: none;
+  border-right: none;
 `;
 
 const BookRoom = styled.button`

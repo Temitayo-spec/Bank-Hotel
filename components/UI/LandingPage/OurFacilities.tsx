@@ -8,6 +8,7 @@ import room_btn_default from '@/public/svgs/room_btn_default.svg';
 import row_img_1 from '@/public/images/our_facilities/row_img_1.png';
 import arrow from '@/public/svgs/arrow.svg';
 import row_img_2 from '@/public/images/our_facilities/row_img_2.png';
+import label from '@/public/images/our_facilities/label.svg';
 
 const OurFacilities = () => {
   return (
@@ -26,7 +27,10 @@ const OurFacilities = () => {
           <Image src={img_1} alt="image_1" />
         </Header>
         <SectionOne>
-          <Image src={img_2} alt="image_2" />
+          <ImageCtn>
+            <Image src={label} alt="label" />
+            <Image src={img_2} alt="image_2" />
+          </ImageCtn>
           <p>
             Bank Hotel offers you a wide range of additional services and
             facilities. Visit our restaurant to try exclusive meals, book a
@@ -114,6 +118,15 @@ const Header = styled.header`
     height: 100%;
     object-fit: contain;
   }
+
+  @media (min-width: 768px) and (max-width: 1024px) {
+    display: flex;
+    flex-direction: row-reverse;
+    img:nth-child(3) {
+      opacity: 0;
+      visibility: hidden;
+    }
+  }
 `;
 
 const P = styled.p`
@@ -122,6 +135,12 @@ const P = styled.p`
   font-weight: var(--font-weight-normal);
   text-transform: uppercase;
   padding-right: 8.5em;
+
+  @media (min-width: 768px) and (max-width: 1024px) {
+    padding-right: 0;
+    width: 60%;
+    text-align: left;
+  }
 `;
 
 const CustomH1Ctn = styled.div`
@@ -147,6 +166,13 @@ const CustomH1Ctn = styled.div`
       object-fit: cover;
     }
   }
+
+  @media (min-width: 768px) and (max-width: 1024px) {
+    h1 {
+      font-size: 6.25rem;
+      line-height: 5rem;
+    }
+  }
 `;
 
 const SectionOne = styled.section`
@@ -170,6 +196,33 @@ const SectionOne = styled.section`
     display: flex;
     align-items: flex-end;
   }
+
+  @media (min-width: 768px) and (max-width: 1024px) {
+    img {
+      margin-top: -6em;
+    }
+
+    p {
+      font-size: 0.8125rem;
+      line-height: 1.4375rem;
+    }
+  }
+`;
+
+const ImageCtn = styled.div`
+  width: 100%;
+  position: relative;
+
+  img:first-child {
+    position: absolute;
+    right: -40px;
+    z-index: 0;
+  }
+
+  img:last-child {
+    position: relative;
+    z-index: 1;
+  }
 `;
 
 const SectionTwo = styled.section`
@@ -178,6 +231,11 @@ const SectionTwo = styled.section`
   grid-template-columns: 2fr 1fr;
   gap: 4em;
   margin-top: 15em;
+
+  @media (min-width: 768px) and (max-width: 1024px) {
+    margin-top: 10em;
+    height: 60vh;
+  }
 `;
 
 const LHS = styled.div`
@@ -192,6 +250,13 @@ const ButtonCtn = styled.div`
     object-fit: contain;
     margin-top: 65%;
     transform: rotate(90deg);
+  }
+
+  @media (min-width: 768px) and (max-width: 1024px) {
+    img {
+      width: 6.5625rem;
+      height: 6.5625rem;
+    }
   }
 `;
 
@@ -211,6 +276,10 @@ const Numbering = styled.h2`
   line-height: 3.125rem;
   letter-spacing: 0.09375rem;
   text-transform: capitalize;
+
+  @media (min-width: 768px) and (max-width: 1024px) {
+    font-size: 2.25rem;
+  }
 `;
 
 const Info = styled.div`
@@ -235,6 +304,17 @@ const Info = styled.div`
     font-weight: var(--font-weight-normal);
     line-height: 1.75rem;
   }
+
+  @media (min-width: 768px) and (max-width: 1024px) {
+    h2 {
+      font-size: 2.25rem;
+    }
+
+    p {
+      font-size: 0.8125rem;
+      line-height: 1.4375rem;
+    }
+  }
 `;
 
 const RHS = styled.div`
@@ -246,7 +326,7 @@ const RHS = styled.div`
   img {
     width: 100%;
     height: 100%;
-    object-fit: contain;
+    object-fit: cover;
   }
 `;
 
@@ -274,15 +354,28 @@ const Row = styled.div`
   h2 {
     flex: 2;
     font-size: 3.125rem;
-    font-family: Miracle;
-    font-style: normal;
-    font-weight: 400;
+    font-family: var(--font-secondary);
+    font-weight: var(--font-weight-normal);
     line-height: 3.125rem;
     letter-spacing: 0.09375rem;
     text-transform: capitalize;
 
     span {
       margin-right: 2em;
+    }
+  }
+
+  img {
+    object-fit: cover;
+  }
+
+  @media (min-width: 768px) and (max-width: 1024px) {
+    h2 {
+      font-size: 2.25rem;
+
+      span {
+        margin-right: 0.5em;
+      }
     }
   }
 `;

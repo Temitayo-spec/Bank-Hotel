@@ -75,6 +75,13 @@ const Inner = styled.div`
     text-transform: uppercase;
     width: 15%;
   }
+
+  @media (min-width: 768px) and (max-width: 1024px) {
+    h2 {
+      font-size: 1.125rem;
+      width: 20%;
+    }
+  }
 `;
 
 const Main = styled.div`
@@ -107,6 +114,17 @@ const Header = styled.div`
     opacity: 0.8;
     width: 40%;
     margin: 1em auto 4em;
+  }
+
+  @media (min-width: 768px) and (max-width: 1024px) {
+    h1 {
+      font-size: 6.25rem;
+    }
+
+    p {
+      font-size: 0.8125rem;
+      line-height: 1.4375rem;
+    }
   }
 `;
 
@@ -144,7 +162,7 @@ const ScatteredImgCtn = styled.div`
   }
 
   img:nth-child(4) {
-    bottom: -200px;
+    bottom: -150px;
     right: -50px;
   }
 `;
@@ -170,6 +188,13 @@ const SmallText = styled.div`
     width: 70%;
     margin-left: 0;
     text-align: left;
+    opacity: 0.8;
+  }
+
+  @media (min-width: 768px) and (max-width: 1024px) {
+    p {
+      font-size: 1rem;
+    }
   }
 `;
 
