@@ -58,6 +58,10 @@ const Wrapper = styled.div`
 const Inner = styled.div`
   width: 95%;
   margin: 0 auto;
+
+  @media (min-width: 200px) and (max-width: 767px) {
+    width: 100%;
+  }
 `;
 
 const ImageCtn = styled.div`
@@ -73,6 +77,12 @@ const ImageCtn = styled.div`
     width: 100%;
     height: 100%;
     object-fit: cover;
+  }
+
+  @media (min-width: 200px) and (max-width: 767px) {
+    & > img {
+      height: 29.5rem;
+    }
   }
 `;
 
@@ -93,6 +103,20 @@ const ButtonContainer = styled.div`
     font-size: var(--font-size-md);
     font-family: var(--font-primary);
     font-weight: var(--font-weight-medium);
+  }
+
+  @media (min-width: 200px) and (max-width: 767px) {
+    bottom: 20px;
+    right: 10px;
+    button {
+      display: none;
+      height: 5rem;
+      font-size: 0.875rem;
+      &:last-child {
+        display: flex;
+        width: 50%;
+      }
+    }
   }
 
   @media (min-width: 768px) and (max-width: 1024px) {
@@ -118,6 +142,10 @@ const CheckInBtn = styled.button`
   align-items: center;
   border: none;
   border-right: 1px solid #fff;
+
+  @media (min-width: 200px) and (max-width: 767px) {
+    display: none;
+  }
 `;
 
 const CheckOutBtn = styled.button`
@@ -131,6 +159,10 @@ const CheckOutBtn = styled.button`
   justify-content: space-between;
   align-items: center;
   border: none;
+
+  @media (min-width: 200px) and (max-width: 767px) {
+    display: none;
+  }
 `;
 
 const BookRoom = styled.button`
@@ -173,6 +205,10 @@ const Contact = styled.div`
     color: var(--text-color-primary, #fffcf6);
   }
 
+  @media (min-width: 200px) and (max-width: 767px) {
+    display: none;
+  }
+
   @media (min-width: 768px) and (max-width: 1024px) {
     h3 {
       font-size: 1.125rem;
@@ -199,6 +235,16 @@ const Suite = styled.div`
     font-family: var(--font-primary);
     font-weight: var(--font-weight-normal);
     text-transform: uppercase;
+  }
+
+  @media (min-width: 200px) and (max-width: 767px) {
+    align-items: flex-start;
+
+    h3,
+    span {
+      font-size: 0.75rem;
+      margin-left: 1em;
+    }
   }
 
   @media (min-width: 768px) and (max-width: 1024px) {

@@ -28,16 +28,18 @@ const Rooms = () => {
               <span>Since 1973</span>
             </Year>
             <MidTextCtn>
-              <h2>Superior Twin</h2>
-              <p>
-                The Superior twin is perfect for those who plan to stay long.
-                The spacious and bright room is equipped with deluxe Italian
-                furniture and has a beautiful view to the historical part of the
-                city. Stylish interior design and comfortable beds will make
-                your stay cozy and pleasant.
-              </p>
+              <div>
+                <h2>Superior Twin</h2>
+                <p>
+                  The Superior twin is perfect for those who plan to stay long.
+                  The spacious and bright room is equipped with deluxe Italian
+                  furniture and has a beautiful view to the historical part of
+                  the city. Stylish interior design and comfortable beds will
+                  make your stay cozy and pleasant.
+                </p>
+              </div>
               <RoomOf>
-                <span>01</span> / <span>04</span>
+                <span>01 </span>  /  <span>04</span>
               </RoomOf>
             </MidTextCtn>
           </Middle>
@@ -95,6 +97,20 @@ const Header = styled.header`
     text-transform: uppercase;
   }
 
+  @media (min-width: 200px) and (max-width: 767px) {
+    grid-template-columns: 1fr;
+    h1 {
+      font-size: 3rem;
+      line-height: 3.75rem;
+    }
+
+    p {
+      font-size: 0.75rem;
+      margin-top: 1.5em;
+      width: 60%;
+    }
+  }
+
   @media (min-width: 768px) and (max-width: 1024px) {
     h1 {
       font-size: 5.625rem;
@@ -124,7 +140,7 @@ const Year = styled.div`
     color: var(--text-color-tertiary, #1b3b36);
   }
 
-  @media (min-width: 768px) and (max-width: 1024px) {
+  @media (min-width: 200px) and (max-width: 1024px) {
     display: none;
   }
 `;
@@ -135,12 +151,29 @@ const Main = styled.div`
   grid-template-columns: 1fr 1fr 1fr;
   gap: 2em;
   height: 70vh;
+
+  @media (min-width: 200px) and (max-width: 767px) {
+    height: 100%;
+    display: flex;
+    flex-direction: column-reverse;
+  }
 `;
 
 const LHS = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+
+  @media (min-width: 200px) and (max-width: 767px) {
+    img:first-child {
+      display: none;
+    }
+
+    img:last-child {
+      width: 6.5625rem;
+      margin-top: -2em;
+    }
+  }
 
   @media (min-width: 768px) and (max-width: 1024px) {
     img:first-child {
@@ -159,6 +192,10 @@ const Middle = styled.div`
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-start;
+
+  @media (min-width: 200px) and (max-width: 767px) {
+    flex-direction: row;
+  }
 `;
 
 const MidTextCtn = styled.div`
@@ -184,6 +221,18 @@ const MidTextCtn = styled.div`
     line-height: 1.75rem;
   }
 
+  @media (min-width: 200px) and (max-width: 767px) {
+    flex-direction: column-reverse;
+
+    h2 {
+      font-size: 1.875rem;
+    }
+
+    p {
+      font-size: 0.8125rem;
+    }
+  }
+
   @media (min-width: 768px) and (max-width: 1024px) {
     p {
       font-size: 0.8125rem;
@@ -204,10 +253,17 @@ const RoomOf = styled.div`
 
   span:first-child {
     color: var(--text-color-tertiary, #1b3b36);
+    margin-right: 0.5em;
   }
 
   span:last-child {
     opacity: 0.5;
+    margin-left: 0.5em;
+  }
+
+  @media (min-width: 200px) and (max-width: 767px) {
+    margin-left: auto;
+    font-size: 1rem;
   }
 
   @media (min-width: 768px) and (max-width: 1024px) {
@@ -241,6 +297,21 @@ const BookRoomBtn = styled.button`
     font-size: 1.125rem;
     font-family: var(--font-primary);
     position: absolute;
+  }
+
+  @media (min-width: 200px) and (max-width: 767px) {
+    bottom: 1em;
+    right: 1em;
+    width: 7rem;
+    height: 7rem;
+    img {
+      width: 100%;
+      height: 100%;
+    }
+
+    span {
+      font-size: 0.75rem;
+    }
   }
 
   @media (min-width: 768px) and (max-width: 1024px) {

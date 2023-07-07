@@ -76,6 +76,14 @@ const Inner = styled.div`
     width: 15%;
   }
 
+  @media (min-width: 200px) and (max-width: 767px) {
+    h2 {
+      font-size: 0.875rem;
+      width: 50%;
+      top: 10px;
+    }
+  }
+
   @media (min-width: 768px) and (max-width: 1024px) {
     h2 {
       font-size: 1.125rem;
@@ -116,6 +124,19 @@ const Header = styled.div`
     margin: 1em auto 4em;
   }
 
+  @media (min-width: 200px) and (max-width: 767px) {
+    h1 {
+      font-size: 3.75rem;
+      line-height: 3.75rem;
+    }
+
+    p {
+      font-size: 0.8125rem;
+      line-height: 1.4375rem;
+      width: 100%;
+    }
+  }
+
   @media (min-width: 768px) and (max-width: 1024px) {
     h1 {
       font-size: 6.25rem;
@@ -133,6 +154,15 @@ const CenterImgCtn = styled.div`
     width: 100%;
     height: 100%;
     object-fit: contain;
+  }
+
+  @media (min-width: 200px) and (max-width: 767px) {
+    & > img {
+      position: relative;
+      z-index: 7;
+      width: 50%;
+      margin-top: 3em;
+    }
   }
 `;
 
@@ -165,6 +195,38 @@ const ScatteredImgCtn = styled.div`
     bottom: -150px;
     right: -50px;
   }
+
+  @media (min-width: 200px) and (max-width: 767px) {
+    top: 4em;
+    img:nth-child(1) {
+      top: 300px;
+      left: -50px;
+      height: 20%;
+    }
+
+    img:nth-child(2) {
+      top: 300px;
+      right: 0px;
+      opacity: 0.4;
+      z-index: 2;
+      width: 30%;
+    }
+
+    img:nth-child(3) {
+      bottom: 180px;
+      left: 40%;
+      z-index: 4;
+      height: 20%;
+    }
+
+    img:nth-child(4) {
+      bottom: 140px;
+      left: 0px;
+      opacity: 0.4;
+      width: 50%;
+      z-index: 2;
+    }
+  }
 `;
 
 const SmallText = styled.div`
@@ -189,6 +251,15 @@ const SmallText = styled.div`
     margin-left: 0;
     text-align: left;
     opacity: 0.8;
+  }
+
+  @media (min-width: 200px) and (max-width: 767px) {
+    margin-top: 10em;
+
+    p {
+      font-size: 1rem;
+      width: 80%;
+    }
   }
 
   @media (min-width: 768px) and (max-width: 1024px) {

@@ -42,6 +42,11 @@ export default Banner;
 const Wrapper = styled.div`
   width: 100%;
   margin: 4em 0 0 0;
+
+  @media (min-width: 200px) and (max-width: 767px) {
+    margin: 1em 0 0 0;
+    overflow: hidden;
+  }
 `;
 
 const Inner = styled.div``;
@@ -53,6 +58,11 @@ const TextContainer = styled.div`
   display: flex;
   justify-content: space-between;
   gap: 1rem;
+
+  @media (min-width: 200px) and (max-width: 767px) {
+    flex-direction: column;
+    height: 100%;
+  }
 
   @media (min-width: 768px) and (max-width: 1024px) {
     height: 20vh;
@@ -85,6 +95,24 @@ const LHS = styled.div`
     text-transform: uppercase;
     color: #fcd043;
   }
+
+  @media (min-width: 200px) and (max-width: 767px) {
+    align-items: center;
+    text-align: center;
+    flex: 1;
+    height: 100%;
+    h1 {
+      font-size: 4rem;
+      margin: 0 0 1rem 0;
+      line-height: normal;
+    }
+
+    p {
+      font-size: 0.6rem;
+      line-height: normal;
+    }
+  }
+
   @media (min-width: 768px) and (max-width: 1024px) {
     flex: 2;
     h1 {
@@ -106,6 +134,12 @@ const RHS = styled.div`
   flex-direction: column;
   justify-content: space-between;
 
+  @media (min-width: 200px) and (max-width: 767px) {
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+  }
+
   @media (min-width: 768px) and (max-width: 1024px) {
     width: 100%;
     flex-direction: row;
@@ -120,9 +154,18 @@ const Top = styled.div`
   align-items: center;
 
   img {
-    width: 50px;
-    height: 50px;
     object-fit: contain;
+  }
+
+  @media (min-width: 200px) and (max-width: 767px) {
+    display: none;
+  }
+
+  @media (min-width: 768px) and (max-width: 1024px) {
+    img {
+      width: 50px;
+      height: 50px;
+    }
   }
 `;
 
@@ -144,7 +187,7 @@ const Year = styled.div`
     color: #fffcf6;
   }
 
-  @media (min-width: 768px) and (max-width: 1024px) {
+  @media (min-width: 200px) and (max-width: 1024px) {
     display: none;
   }
 `;
@@ -158,6 +201,28 @@ const Bottom = styled.div`
     color: var(--text-color-primary);
     opacity: 0.8;
     width: 85%;
+
+    @media (min-width: 200px) and (max-width: 767px) {
+      width: 100%;
+      font-size: 0.75rem;
+      text-align: center;
+      line-height: 1.4375rem;
+      position: relative;
+      margin-top: 1rem;
+
+      &:before {
+        content: '';
+        display: block;
+        width: 50%;
+        height: 1px;
+        background-color: #fffcf6;
+        position: absolute;
+        top: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        opacity: 0.12;
+      }
+    }
 
     @media (min-width: 768px) and (max-width: 1024px) {
       font-size: 0.8125rem;

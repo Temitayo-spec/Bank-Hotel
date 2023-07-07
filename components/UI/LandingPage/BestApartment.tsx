@@ -45,10 +45,8 @@ const Inner = styled.div`
 
   p {
     font-size: 1.125rem;
-    font-family: Helvetica Neue LT Std;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
+    font-family: var(--font-primary);
+    font-weight: var(--font-weight-normal);
     text-transform: uppercase;
     width: 20%;
     position: absolute;
@@ -56,7 +54,29 @@ const Inner = styled.div`
   }
 
   img {
+    width: 100%;
     object-fit: cover;
     margin-left: -2.5em;
+  }
+
+  @media (min-width: 200px) and (max-width: 767px) {
+    h1 {
+      font-size: 3rem;
+      line-height: 3.75rem;
+    }
+
+    p {
+      font-size: 1.125rem;
+      bottom: 0px;
+      right: 20px;
+      width: 60%;
+    }
+
+    img {
+      width: 100%;
+      object-fit: contain;
+      margin-top: -10em;
+      margin-left: 0;
+    }
   }
 `;

@@ -87,6 +87,10 @@ const Top = styled.div`
   grid-template-columns: 2fr 1fr 1fr;
   height: 20vh;
   margin-bottom: 10em;
+
+  @media (min-width: 200px) and (max-width: 767px) {
+    grid-template-columns: 2fr 1fr;
+  }
 `;
 
 const ContactNumber = styled.div`
@@ -95,6 +99,11 @@ const ContactNumber = styled.div`
   font-size: 3.125rem;
   font-weight: var(--font-weight-normal);
   line-height: 3.125rem;
+
+  @media (min-width: 200px) and (max-width: 767px) {
+    font-size: 1.125rem;
+    text-decoration: underline;
+  }
 
   @media (min-width: 768px) and (max-width: 1024px) {
     font-size: 2rem;
@@ -112,6 +121,12 @@ const ContactAddress = styled.div`
     font-size: var(--font-size-lg);
     font-weight: var(--font-weight-normal);
     text-transform: uppercase;
+  }
+
+  @media (min-width: 200px) and (max-width: 767px) {
+    p {
+      font-size: 1.125rem;
+    }
   }
 
   @media (min-width: 768px) and (max-width: 1024px) {
@@ -150,6 +165,13 @@ const LargeText = styled.div`
     z-index: 5;
   }
 
+  @media (min-width: 200px) and (max-width: 767px) {
+    h1 {
+      font-size: 5.25rem;
+      line-height: 5.25rem;
+    }
+  }
+
   @media (min-width: 768px) and (max-width: 1024px) {
     h1 {
       font-size: 9.375rem;
@@ -177,6 +199,18 @@ const AbsoluteImages = styled.div`
       margin-left: -60px;
     }
 
+    @media (min-width: 200px) and (max-width: 767px) {
+      &:first-child {
+        top: 370px;
+        width: 50%;
+      }
+
+      &:last-child {
+        object-fit: cover;
+        top: 0;
+      }
+    }
+
     @media (min-width: 768px) and (max-width: 1024px) {
       &:first-child {
         top: 300px;
@@ -202,6 +236,12 @@ const FindRoomCtn = styled.div`
     text-transform: uppercase;
   }
 
+  @media (min-width: 200px) and (max-width: 767px) {
+    h2 {
+      display: none;
+    }
+  }
+
   @media (min-width: 768px) and (max-width: 1024px) {
     h2 {
       font-size: 1.125rem;
@@ -221,6 +261,12 @@ const ButtonContainer = styled.div`
     img {
       width: 1em;
       height: 1em;
+    }
+
+    @media (min-width: 200px) and (max-width: 767px) {
+      font-size: 0.75rem;
+      height: 4rem;
+      width: 40%;
     }
 
     @media (min-width: 768px) and (max-width: 1024px) {
@@ -245,6 +291,10 @@ const CheckInBtn = styled.button`
   justify-content: space-between;
   align-items: center;
   border-right: none;
+
+  @media (min-width: 200px) and (max-width: 767px) {
+    display: none !important;
+  }
 `;
 
 const CheckOutBtn = styled.button`
@@ -262,6 +312,9 @@ const CheckOutBtn = styled.button`
   align-items: center;
   border-left: none;
   border-right: none;
+  @media (min-width: 200px) and (max-width: 767px) {
+    display: none !important;
+  }
 `;
 
 const BookRoom = styled.button`
@@ -276,4 +329,7 @@ const BookRoom = styled.button`
   justify-content: center;
   align-items: center;
   border: none;
+  @media (min-width: 200px) and (max-width: 767px) {
+    background: var(--text-color-secondary);
+  }
 `;

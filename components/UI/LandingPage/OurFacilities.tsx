@@ -119,6 +119,13 @@ const Header = styled.header`
     object-fit: contain;
   }
 
+  @media (min-width: 200px) and (max-width: 767px) {
+    grid-template-columns: 1fr;
+    img:nth-child(3) {
+      display: none;
+    }
+  }
+
   @media (min-width: 768px) and (max-width: 1024px) {
     display: flex;
     flex-direction: row-reverse;
@@ -135,6 +142,14 @@ const P = styled.p`
   font-weight: var(--font-weight-normal);
   text-transform: uppercase;
   padding-right: 8.5em;
+
+  @media (min-width: 200px) and (max-width: 767px) {
+    margin-left: auto;
+    padding-right: 0;
+    text-align: right;
+    width: 60%;
+    font-size: 0.875rem;
+  }
 
   @media (min-width: 768px) and (max-width: 1024px) {
     padding-right: 0;
@@ -164,6 +179,13 @@ const CustomH1Ctn = styled.div`
       width: 1em;
       height: 1em;
       object-fit: cover;
+    }
+  }
+
+  @media (min-width: 200px) and (max-width: 767px) {
+    h1 {
+      font-size: 4rem;
+      line-height: 3.125rem;
     }
   }
 
@@ -197,6 +219,17 @@ const SectionOne = styled.section`
     align-items: flex-end;
   }
 
+  @media (min-width: 200px) and (max-width: 767px) {
+    grid-template-columns: 1fr;
+    place-items: center;
+    gap: 1em;
+
+    p {
+      font-size: 0.875rem;
+      line-height: 1.25rem;
+    }
+  }
+
   @media (min-width: 768px) and (max-width: 1024px) {
     img {
       margin-top: -6em;
@@ -223,6 +256,17 @@ const ImageCtn = styled.div`
     position: relative;
     z-index: 1;
   }
+
+  @media (min-width: 200px) and (max-width: 767px) {
+    display: flex;
+    flex-direction: column;
+
+    img:last-child {
+      position: static;
+      width: 80%;
+      margin: 0 auto;
+    }
+  }
 `;
 
 const SectionTwo = styled.section`
@@ -231,6 +275,11 @@ const SectionTwo = styled.section`
   grid-template-columns: 2fr 1fr;
   gap: 4em;
   margin-top: 15em;
+
+  @media (min-width: 200px) and (max-width: 767px) {
+    display: flex;
+    flex-direction: column-reverse;
+  }
 
   @media (min-width: 768px) and (max-width: 1024px) {
     margin-top: 10em;
@@ -241,6 +290,7 @@ const SectionTwo = styled.section`
 const LHS = styled.div`
   width: 100%;
   display: flex;
+  position: relative;
 `;
 
 const ButtonCtn = styled.div`
@@ -250,6 +300,15 @@ const ButtonCtn = styled.div`
     object-fit: contain;
     margin-top: 65%;
     transform: rotate(90deg);
+  }
+
+  @media (min-width: 200px) and (max-width: 767px) {
+    flex: 1;
+
+    img {
+      margin-top: 40%;
+      width: 4em;
+    }
   }
 
   @media (min-width: 768px) and (max-width: 1024px) {
@@ -266,6 +325,9 @@ const RoomDetails = styled.div`
   flex-direction: column;
   justify-content: space-between;
   padding: 1em 0;
+  @media (min-width: 200px) and (max-width: 767px) {
+    flex: 1;
+  }
 `;
 
 const Numbering = styled.h2`
@@ -276,6 +338,13 @@ const Numbering = styled.h2`
   line-height: 3.125rem;
   letter-spacing: 0.09375rem;
   text-transform: capitalize;
+
+  @media (min-width: 200px) and (max-width: 767px) {
+    font-size: 2rem;
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
 
   @media (min-width: 768px) and (max-width: 1024px) {
     font-size: 2.25rem;
@@ -303,6 +372,19 @@ const Info = styled.div`
     font-family: var(--font-primary);
     font-weight: var(--font-weight-normal);
     line-height: 1.75rem;
+  }
+
+  @media (min-width: 200px) and (max-width: 767px) {
+    gap: 0.5em;
+    h2 {
+      font-size: 2rem;
+      line-height: 2.25rem;
+    }
+
+    p {
+      font-size: 0.75rem;
+      line-height: 1.375rem;
+    }
   }
 
   @media (min-width: 768px) and (max-width: 1024px) {
@@ -350,6 +432,7 @@ const Row = styled.div`
   gap: 4em;
   padding: 3em 0;
   color: var(--text-color-tertiary, #1b3b36);
+  position: relative;
 
   h2 {
     flex: 2;
@@ -367,6 +450,26 @@ const Row = styled.div`
 
   img {
     object-fit: cover;
+  }
+
+  @media (min-width: 200px) and (max-width: 767px) {
+    flex-direction: column;
+    padding: 1em 0;
+    gap: 2em;
+
+    h2 {
+      font-size: 1.75rem;
+
+      span {
+        position: absolute;
+        top: 20px;
+        right: -60px;
+      }
+    }
+
+    img:last-child {
+      display: none;
+    }
   }
 
   @media (min-width: 768px) and (max-width: 1024px) {

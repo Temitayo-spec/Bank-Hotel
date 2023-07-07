@@ -46,7 +46,9 @@ const Wrapper = styled.footer`
   width: 100%;
   background-color: var(--text-color-primary);
   height: 60vh;
-
+  @media (min-width: 200px) and (max-width: 767px) {
+    height: auto;
+  }
   @media (min-width: 768px) and (max-width: 1024px) {
     height: 50vh;
   }
@@ -60,6 +62,10 @@ const Inner = styled.div`
   grid-template-columns: repeat(3, 1fr);
   gap: 4em;
   padding: 5em 0;
+
+  @media (min-width: 200px) and (max-width: 767px) {
+    grid-template-columns: 1fr;
+  }
 `;
 
 const AboutUsCtn = styled.div`
@@ -85,6 +91,17 @@ const MainText = styled.div`
     font-size: 1rem;
     line-height: 1.75rem;
     opacity: 0.8;
+  }
+
+  @media (min-width: 200px) and (max-width: 767px) {
+    h2 {
+      font-size: 1.125rem;
+    }
+
+    p {
+      font-size: 0.875rem;
+      line-height: 1.4375rem;
+    }
   }
 
   @media (min-width: 768px) and (max-width: 1024px) {
@@ -124,6 +141,17 @@ const News = styled.div`
     font-size: 1rem;
     line-height: 1.75rem;
     opacity: 0.8;
+  }
+
+  @media (min-width: 200px) and (max-width: 767px) {
+    h2 {
+      font-size: 1.125rem;
+    }
+
+    p {
+      font-size: 0.875rem;
+      line-height: 1.4375rem;
+    }
   }
 
   @media (min-width: 768px) and (max-width: 1024px) {
@@ -199,6 +227,23 @@ const Socials = styled.div`
       line-height: 1.25rem;
       text-transform: uppercase;
       margin-right: 1em;
+    }
+  }
+
+  @media (min-width: 200px) and (max-width: 767px) {
+    h2 {
+      font-size: 1.125rem;
+    }
+
+    ul {
+      flex-direction: column;
+      align-items: flex-start;
+
+      li {
+        font-size: 0.75rem;
+        margin-right: 0;
+        margin-bottom: 1em;
+      }
     }
   }
 
