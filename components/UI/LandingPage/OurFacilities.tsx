@@ -12,7 +12,7 @@ import label from '@/public/images/our_facilities/label.svg';
 
 const OurFacilities = () => {
   return (
-    <Wrapper>
+    <Wrapper id="facilities">
       <Inner>
         <Header>
           <P>Art & Congress Hall</P>

@@ -14,7 +14,8 @@ export default Header;
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
-  width: 95%;
+  width: 100%;
   margin: 0 auto;
   padding: 20px 0;
+  background-color: var(--bg-color);
 `;

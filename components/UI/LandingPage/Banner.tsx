@@ -41,10 +41,10 @@ export default Banner;
 
 const Wrapper = styled.div`
   width: 100%;
-  margin: 4em 0 0 0;
+  padding-top: 4em;
 
   @media (min-width: 200px) and (max-width: 767px) {
-    margin: 1em 0 0 0;
+    padding: 1em 0 0 0;
     overflow: hidden;
   }
 `;

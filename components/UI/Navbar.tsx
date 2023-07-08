@@ -4,14 +4,17 @@ import menu_icon from '@/public/svgs/menu_icon.svg';
 import ic_close from '@/public/svgs/ic_close.svg';
 import { useState } from 'react';
 import Link from 'next/link';
+import ic_star from '@/public/svgs/ic-star.svg';
+import { useRouter } from 'next/router';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [activeNav, setActiveNav] = useState('home');
+  const { pathname } = useRouter();
   return (
     <Wrapper>
       <Logo>
         <H2>BankHotel</H2>
-
         {isMenuOpen ? (
           <Image
             src={ic_close}
@@ -29,23 +32,83 @@ const Navbar = () => {
       <Nav className={isMenuOpen ? 'active' : 'inactive'}>
         <ul>
           <li>
-            <Link href="#">Home</Link>
+            <Link
+              href="/"
+              onClick={() => {
+                setActiveNav('home');
+                setIsMenuOpen(false);
+              }}
+            >
+              Home
+            </Link>
+            {activeNav === 'home' && <Image src={ic_star} alt="star" />}
+          </li>
+          {pathname === '/' && (
+            <li>
+              <a
+                href="#about"
+                onClick={() => {
+                  setActiveNav('about');
+                  setIsMenuOpen(false);
+                }}
+              >
+                About
+              </a>
+              {activeNav === 'about' && <Image src={ic_star} alt="star" />}
+            </li>
+          )}
+          <li>
+            <Link
+              href="/rooms"
+              onClick={() => {
+                setActiveNav('rooms');
+                setIsMenuOpen(false);
+              }}
+            >
+              Rooms
+            </Link>
+            {pathname === '/rooms' && <Image src={ic_star} alt="star" />}
           </li>
           <li>
-            <Link href="#">About</Link>
+            <Link
+              href="/restaurant"
+              onClick={() => {
+                setActiveNav('restaurant');
+                setIsMenuOpen(false);
+              }}
+            >
+              Restaurant
+            </Link>
+            {pathname === '/restaurant' && <Image src={ic_star} alt="star" />}
           </li>
-          <li>
-            <a href="#">Rooms</a>
-          </li>
-          <li>
-            <a href="#">Restaurant</a>
-          </li>
-          <li>
-            <a href="#">Conference Hall</a>
-          </li>
-          <li>
-            <a href="#">Contacts</a>
-          </li>
+          {pathname === '/' && (
+            <li>
+              <a
+                href="#facilities"
+                onClick={() => {
+                  setActiveNav('facilities');
+                  setIsMenuOpen(false);
+                }}
+              >
+                Conference Hall
+              </a>
+              {activeNav === 'facilities' && <Image src={ic_star} alt="star" />}
+            </li>
+          )}
+          {pathname === '/' && (
+            <li>
+              <a
+                href="#contacts"
+                onClick={() => {
+                  setActiveNav('contacts');
+                  setIsMenuOpen(false);
+                }}
+              >
+                Contacts
+              </a>
+              {activeNav === 'contacts' && <Image src={ic_star} alt="star" />}
+            </li>
+          )}
         </ul>
         <Contact>
           <h3>+38 032 297 50 20</h3>
@@ -69,6 +132,9 @@ const Wrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  background: var(--bg-color);
+  width: 95%;
+  margin: 0 auto;
 `;
 
 const Logo = styled.div`
@@ -107,7 +173,7 @@ const Nav = styled.nav`
   width: 100%;
   display: flex;
   justify-content: space-between;
-  transition: width 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition: width 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
 
   @media (max-width: 1024px) and (min-width: 320px) {
     position: fixed;
@@ -122,8 +188,7 @@ const Nav = styled.nav`
     overflow: hidden;
     border-radius: 500px 0 0 500px;
     &.active {
-      animation: slideIn 0.5s forwards cubic-bezier(0.175, 0.885, 0.32, 1.275)
-        0.5s;
+      animation: slideIn 0.5s forwards cubic-bezier(0.215, 0.61, 0.355, 1) 0.5s;
 
       @keyframes slideIn {
         0% {
@@ -139,7 +204,7 @@ const Nav = styled.nav`
     }
 
     &.inactive {
-      animation: slideOut 0.5s forwards cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      animation: slideOut 0.5s forwards cubic-bezier(0.215, 0.61, 0.355, 1);
 
       @keyframes slideOut {
         0% {
@@ -157,7 +222,7 @@ const Nav = styled.nav`
 
   @media (min-width: 320px) and (max-width: 425px) {
     &.active {
-      animation: slideIn 0.8s forwards cubic-bezier(0.215, 0.610, 0.355, 1) 0.5s;
+      animation: slideIn 0.8s forwards cubic-bezier(0.215, 0.61, 0.355, 1) 0.5s;
 
       @keyframes slideIn {
         0% {
@@ -172,7 +237,7 @@ const Nav = styled.nav`
       }
     }
     &.inactive {
-      animation: slideOut 0.8s forwards cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      animation: slideOut 0.8s forwards cubic-bezier(0.215, 0.61, 0.355, 1);
 
       @keyframes slideOut {
         0% {
@@ -217,8 +282,19 @@ const Nav = styled.nav`
         }
       }
 
+      img {
+        display: none;
+      }
+
       @media (max-width: 1024px) and (min-width: 320px) {
         margin: 0 0 10px 20px;
+        position: relative;
+        img {
+          display: block;
+          position: absolute;
+          top: -15px;
+          left: 40%;
+        }
       }
     }
 

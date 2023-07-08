@@ -8,7 +8,7 @@ import about_us_lines from '@/public/images/about_us_lines.png';
 
 const AboutUs = () => {
   return (
-    <Wrapper>
+    <Wrapper id="about">
       <Inner>
         <LHS>
           <Image src={about_us_img_1} alt="about_us_img_1" />

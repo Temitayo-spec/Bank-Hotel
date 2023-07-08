@@ -7,7 +7,7 @@ import ic_chevron_down from '@/public/svgs/ic-chevron-down.svg';
 
 const ContactUs = () => {
   return (
-    <Wrapper>
+    <Wrapper id="contacts">
       <Inner>
         <Top>
           <ContactNumber>+38 032 297 50 20</ContactNumber>
