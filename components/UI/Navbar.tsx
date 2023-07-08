@@ -95,20 +95,18 @@ const Navbar = () => {
               {activeNav === 'facilities' && <Image src={ic_star} alt="star" />}
             </li>
           )}
-          {pathname === '/' && (
-            <li>
-              <a
-                href="#contacts"
-                onClick={() => {
-                  setActiveNav('contacts');
-                  setIsMenuOpen(false);
-                }}
-              >
-                Contacts
-              </a>
-              {activeNav === 'contacts' && <Image src={ic_star} alt="star" />}
-            </li>
-          )}
+          <li>
+            <a
+              href="#contacts"
+              onClick={() => {
+                setActiveNav('contacts');
+                setIsMenuOpen(false);
+              }}
+            >
+              Contacts
+            </a>
+            {activeNav === 'contacts' && <Image src={ic_star} alt="star" />}
+          </li>
         </ul>
         <Contact>
           <h3>+38 032 297 50 20</h3>

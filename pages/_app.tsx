@@ -2,7 +2,7 @@ import { GlobalStyle } from '@/utils/GlobalStyle';
 // import Preloader from '@/components/General/Preloader';
 import '@/styles/globals.css';
 import type { AppProps } from 'next/app';
-import { Footer, Header } from '@/components/UI';
+import { ContactUs, Footer, Header } from '@/components/UI';
 import Navbar from '@/components/UI/Navbar';
 // import { useEffect, useState } from 'react';
 
@@ -22,6 +22,7 @@ export default function App({ Component, pageProps }: AppProps) {
       <Preloader loading={loading as boolean} /> */}
       <Header />
       <Component {...pageProps} />
+      <ContactUs />
       <Footer />
     </>
   );

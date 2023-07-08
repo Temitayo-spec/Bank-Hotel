@@ -27,7 +27,6 @@ export default function Home() {
         <OurFacilities />
         <BestApartment />
         <OurGallery />
-        <ContactUs />
       </Main>
     </>
   );

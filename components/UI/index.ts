@@ -9,3 +9,4 @@ export { default as OurGallery } from './LandingPage/OurGallery';
 export { default as ContactUs } from './LandingPage/ContactUs';
 export { default as RoomBanner } from './RoomsPage/Banner';
 export { default as SectionTwo } from './RoomsPage/SectionTwo';
+export { default as SectionThree } from './RoomsPage/SectionThree';

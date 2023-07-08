@@ -1,11 +1,11 @@
-import { RoomBanner, SectionTwo } from '@/components/UI';
-import styled from 'styled-components';
+import { RoomBanner, SectionThree, SectionTwo } from '@/components/UI';
 
 const rooms = () => {
   return (
     <div>
       <RoomBanner />
       <SectionTwo />
+      <SectionThree />
     </div>
   );
 };

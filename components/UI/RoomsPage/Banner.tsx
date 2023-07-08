@@ -62,6 +62,13 @@ const TextContent = styled.div`
     display: flex;
     flex-direction: column;
   }
+
+  @media (min-width: 769px) and (max-width: 1024px) {
+    h1 {
+      font-size: 6.25rem;
+      line-height: 5rem;
+    }
+  }
 `;
 
 const Flex = styled.div`
@@ -109,6 +116,7 @@ const BookRoomBtn = styled.button`
     font-size: 1.125rem;
     font-family: var(--font-primary);
     position: absolute;
+    font-style: italic;
   }
 
   @media (min-width: 200px) and (max-width: 767px) {
@@ -128,12 +136,15 @@ const BookRoomBtn = styled.button`
 
   @media (min-width: 768px) and (max-width: 1024px) {
     bottom: 1em;
+    width: 7.5rem;
+    height: 7.5rem;
     img {
-      width: 70%;
+      width: 100%;
+      height: 100%;
     }
 
     span {
-      font-size: 1rem;
+      font-size: 0.875rem;
     }
   }
 `;

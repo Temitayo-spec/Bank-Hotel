@@ -72,6 +72,13 @@ const Inner = styled.div`
     position: relative;
     z-index: 1;
   }
+
+  @media (min-width: 768px) and (max-width: 1024px) {
+    h2:nth-child(4) {
+      font-size: 1.25rem;
+      text-transform: capitalize;
+    }
+  }
 `;
 
 const FlexTextCtn = styled.div`
@@ -82,7 +89,7 @@ const FlexTextCtn = styled.div`
 
   color: var(--text-color-primary, #fffcf6);
   h2 {
-    font-weight: 300;
+    font-weight: 400;
     font-family: var(--font-secondary);
     font-size: 3.125rem;
     line-height: 3.75rem;
@@ -97,6 +104,25 @@ const FlexTextCtn = styled.div`
     opacity: 0.8;
     flex: 1;
   }
+
+  @media (min-width: 768px) and (max-width: 1024px) {
+    flex-direction: column;
+
+    h2 {
+      font-size: 2.5rem;
+      line-height: 2.5rem;
+      letter-spacing: 0.075rem;
+      width: 60%;
+      margin-right: auto;
+    }
+
+    p {
+      font-size: 0.8125rem;
+      line-height: 1.4375rem;
+      width: 45%;
+      margin-left: auto;
+    }
+  }
 `;
 
 const AbsoluteImage = styled.div`
@@ -104,6 +130,10 @@ const AbsoluteImage = styled.div`
   left: 0;
   top: 40%;
   z-index: 0;
+
+  @media (min-width: 768px) and (max-width: 1024px) {
+    top: 50%;
+  }
 `;
 
 const Year = styled.div`
@@ -111,7 +141,7 @@ const Year = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid #fffcf6;
+  border: 1px solid #727271;
   border-radius: 99px;
   gap: 1.5em;
   padding: 0 1.5em;
@@ -127,6 +157,5 @@ const Year = styled.div`
   }
 
   @media (min-width: 200px) and (max-width: 1024px) {
-    display: none;
   }
 `;
