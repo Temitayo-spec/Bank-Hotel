@@ -6,4 +6,5 @@ export { default as Rooms } from './LandingPage/Rooms';
 export { default as OurFacilities } from './LandingPage/OurFacilities';
 export { default as BestApartment } from './LandingPage/BestApartment';
 export { default as OurGallery } from './LandingPage/OurGallery';
-export {default as ContactUs} from './LandingPage/ContactUs';
+export { default as ContactUs } from './LandingPage/ContactUs';
+export { default as RoomBanner } from './RoomsPage/Banner';
