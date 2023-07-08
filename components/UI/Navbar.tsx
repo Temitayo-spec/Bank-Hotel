@@ -83,10 +83,13 @@ const Logo = styled.div`
 
   @media (max-width: 1024px) and (min-width: 320px) {
     width: 100%;
+    padding: 0.3em;
+    height: 50px;
     img {
       display: block;
       margin-left: auto;
       z-index: 11;
+      object-fit: contain;
     }
   }
 `;
@@ -104,7 +107,7 @@ const Nav = styled.nav`
   width: 100%;
   display: flex;
   justify-content: space-between;
-  transition: all 0.5s ease-in-out;
+  transition: width 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 
   @media (max-width: 1024px) and (min-width: 320px) {
     position: fixed;
@@ -117,9 +120,10 @@ const Nav = styled.nav`
     background-color: #313f38;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
     overflow: hidden;
-    border-radius: 1000px 0 0 1000px;
+    border-radius: 500px 0 0 500px;
     &.active {
-      animation: slideIn 1s forwards ease-in-out 0.5s;
+      animation: slideIn 0.5s forwards cubic-bezier(0.175, 0.885, 0.32, 1.275)
+        0.5s;
 
       @keyframes slideIn {
         0% {
@@ -135,12 +139,11 @@ const Nav = styled.nav`
     }
 
     &.inactive {
-      animation: slideOut 1s forwards ease-in-out;
+      animation: slideOut 0.5s forwards cubic-bezier(0.175, 0.885, 0.32, 1.275);
 
       @keyframes slideOut {
         0% {
           width: 375px;
-          border-radius: 100px 0 0 100px;
         }
         100% {
           width: 0;
@@ -154,7 +157,7 @@ const Nav = styled.nav`
 
   @media (min-width: 320px) and (max-width: 425px) {
     &.active {
-      animation: slideIn 1s forwards ease-in-out 0.5s;
+      animation: slideIn 0.8s forwards cubic-bezier(0.215, 0.610, 0.355, 1) 0.5s;
 
       @keyframes slideIn {
         0% {
@@ -169,12 +172,11 @@ const Nav = styled.nav`
       }
     }
     &.inactive {
-      animation: slideOut 1s forwards ease-in-out;
+      animation: slideOut 0.8s forwards cubic-bezier(0.175, 0.885, 0.32, 1.275);
 
       @keyframes slideOut {
         0% {
-          width: 375px;
-          border-radius: 100px 0 0 100px;
+          width: 100%;
         }
         100% {
           width: 0;
