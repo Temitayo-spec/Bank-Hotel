@@ -3,6 +3,7 @@ import star from '@/public/svgs/ic-star.svg';
 import Image from 'next/image';
 import section_two_img from '@/public/images/rooms/section_two_img.png';
 import curve from '@/public/images/rooms/Curve.svg';
+import Reveal from '@/components/General/Reveal';
 
 const SectionTwo = () => {
   return (
@@ -13,22 +14,31 @@ const SectionTwo = () => {
           <span>Since 1973</span>
         </Year>
         <FlexTextCtn>
-          <h2>
-            All suites have a unique design because we want our every guest to
-            feel special.
-          </h2>
-          <p>
-            The Superior twin would perfectly match the needs of those who plan
-            to stay long. The bright and airy room is equipped with superior
-            soft Italian furniture. Large windows open a beautiful view to the
-            historical part of the city. Contemporary interior design and
-            comfortable beds will make your stay cozy and delightful.
-          </p>
+          <Reveal>
+            <h2>
+              All suites have a unique design because we want our every guest to
+              feel special.
+            </h2>
+          </Reveal>
+          <Reveal textDelay={0.5} slideDelay={0.5}>
+            <p>
+              The Superior twin would perfectly match the needs of those who
+              plan to stay long. The bright and airy room is equipped with
+              superior soft Italian furniture. Large windows open a beautiful
+              view to the historical part of the city. Contemporary interior
+              design and comfortable beds will make your stay cozy and
+              delightful.
+            </p>
+          </Reveal>
         </FlexTextCtn>
         <AbsoluteImage>
           <Image src={curve} alt="curve" />
         </AbsoluteImage>
-        <h2>Premier Standard</h2>
+        <h2>
+          <Reveal textDelay={0.75} slideDelay={0.75}>
+            Premier Standard
+          </Reveal>
+        </h2>
         <Image src={section_two_img} alt="section_two_img" />
       </Inner>
     </Wrapper>

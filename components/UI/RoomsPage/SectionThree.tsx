@@ -4,6 +4,7 @@ import label from '@/public/images/rooms/label.svg';
 import twin_img1 from '@/public/images/rooms/twin_img1.png';
 import twin_img2 from '@/public/images/rooms/twin_img2.png';
 import yellow_polygon from '@/public/svgs/yellow_polygon.svg';
+import Reveal from '@/components/General/Reveal';
 
 const SectionThree = () => {
   return (
@@ -14,23 +15,29 @@ const SectionThree = () => {
           <GridItems>
             <Image src={twin_img1} alt="twin_img1" />
             <div>
-              <h2>Superior Twin</h2>
-              <p>
-                All rooms in Bank Hotel have a special charm achieved through a
-                combination of modern functional design and original 20th
-                century layout.
-              </p>
+              <h2>
+                <Reveal>Superior Twin</Reveal>
+              </h2>
+              <Reveal textDelay={0.5} slideDelay={0.5}>
+                <p>
+                  All rooms in Bank Hotel have a special charm achieved through
+                  a combination of modern functional design and original 20th
+                  century layout.
+                </p>
+              </Reveal>
             </div>
           </GridItems>
           <GridItems>
             <Image src={twin_img2} alt="twin_img1" />
             <p>
-              The Superior twin includes two functional zones: a living room
-              with the best Italian furniture, and an isolated cozy bedroom with
-              a large bed. Here, you will find space both for work and
-              comfortable rest. Hotel offers supreme comfort and outstanding
-              24-hour room service to make sure that the time you spend here is
-              enjoyable and pleasant.
+              <Reveal textDelay={0.75} slideDelay={0.75}>
+                The Superior twin includes two functional zones: a living room
+                with the best Italian furniture, and an isolated cozy bedroom
+                with a large bed. Here, you will find space both for work and
+                comfortable rest. Hotel offers supreme comfort and outstanding
+                24-hour room service to make sure that the time you spend here
+                is enjoyable and pleasant.
+              </Reveal>
             </p>
           </GridItems>
         </Grid>
@@ -103,6 +110,7 @@ const GridItems = styled.div`
   display: flex;
   flex-direction: column;
   color: var(--text-color-tertiary, #1b3b36);
+  gap: 2em;
 
   & > div {
     display: flex;

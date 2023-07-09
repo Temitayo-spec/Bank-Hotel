@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import Image from 'next/image';
 import big_banner from '@/public/images/rooms/big_banner.png';
 import yellow_polygon from '@/public/svgs/yellow_polygon.svg';
+import Reveal from '@/components/General/Reveal';
 
 const Banner = () => {
   return (
@@ -9,12 +10,17 @@ const Banner = () => {
       <Inner>
         <TextContent>
           <h1>
-            Superior <span>twin</span>
+            <Reveal>Superior</Reveal>
+            <Reveal textDelay={0.5} slideDelay={0.5}>
+              <span>twin</span>
+            </Reveal>
           </h1>
           <Flex>
             <p>
-              All room decoration was made with ecological certified and safe
-              materials.
+              <Reveal textDelay={1} slideDelay={1}>
+                All room decoration was made with ecological certified and safe
+                materials.
+              </Reveal>
             </p>
             <BookRoomBtn type="button">
               <Image src={yellow_polygon} alt="yellow_polygon" />
