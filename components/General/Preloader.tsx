@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import curve from '@/public/images/restaurant/curve.png';
 
 const Preloader = () => {
   return (
@@ -23,7 +22,7 @@ const PreloaderStyled = styled.div`
     left: 0;
     width: 100%;
     height: 100%;
-    background: url(${curve.src}), var(--bg-color);
+    background: url('/images/restaurant/curve.png'), var(--bg-color);
     z-index: 1000;
     transition: 0.3s;
     display: flex;
@@ -31,8 +30,8 @@ const PreloaderStyled = styled.div`
     justify-content: center;
     @media (max-width: 768px) {
       background-size: 100% 100%;
-	  background-repeat: no-repeat;
-	  background-position: center;
+      background-repeat: no-repeat;
+      background-position: center;
     }
     .preloader__inner {
       position: relative;
