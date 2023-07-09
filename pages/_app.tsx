@@ -17,64 +17,68 @@ export default function App({ Component, pageProps }: AppProps) {
       setLoading(false);
     }, 4000);
   }, []);
-  return loading ? (
+  return (
     <>
-      <motion.div
-        initial="pageInitial"
-        animate="pageAnimate"
-        exit="pageExit"
-        variants={{
-          pageInitial: {
-            opacity: 0,
-            y: 100,
-          },
-          pageAnimate: {
-            opacity: 1,
-            y: 0,
-          },
-          pageExit: {
-            opacity: 0,
-            y: -100,
-          },
-        }}
-      >
-        <GlobalStyle />
-        <Preloader />
-      </motion.div>
-    </>
-  ) : (
-    <AnimatePresence mode="wait">
-      <motion.div
-        key={router.route}
-        initial="pageInitial"
-        animate="pageAnimate"
-        exit="pageExit"
-        transition={{
-          type: 'tween',
-          ease: 'anticipate',
-          duration: 1.2,
-        }}
-        variants={{
-          pageInitial: {
-            opacity: 0,
-            clipPath: 'circle(0% at 100% 0%)',
-          },
-          pageAnimate: {
-            opacity: 1,
-            clipPath: 'circle(100% at 100% 0%)',
-          },
-          pageExit: {
-            clipPath: 'circle(0% at 100% 0%)',
-          },
-        }}
-      >
-        <GlobalStyle />
+      {loading ? (
+        <>
+          <motion.div
+            initial="pageInitial"
+            animate="pageAnimate"
+            exit="pageExit"
+            variants={{
+              pageInitial: {
+                opacity: 0,
+                y: 100,
+              },
+              pageAnimate: {
+                opacity: 1,
+                y: 0,
+              },
+              pageExit: {
+                opacity: 0,
+                y: -100,
+              },
+            }}
+          >
+            <GlobalStyle />
+            <Preloader />
+          </motion.div>
+        </>
+      ) : (
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={router.route}
+            initial="pageInitial"
+            animate="pageAnimate"
+            exit="pageExit"
+            transition={{
+              type: 'tween',
+              ease: 'anticipate',
+              duration: 1.2,
+            }}
+            variants={{
+              pageInitial: {
+                opacity: 0,
+                clipPath: 'circle(0% at 100% 0%)',
+              },
+              pageAnimate: {
+                opacity: 1,
+                clipPath: 'circle(100% at 100% 0%)',
+              },
+              pageExit: {
+                clipPath: 'circle(0% at 100% 0%)',
+              },
+            }}
+          >
+            <GlobalStyle />
 
-        <Header />
-        <Component {...pageProps} />
-        <ContactUs />
-        <Footer />
-      </motion.div>
-    </AnimatePresence>
+            <Header />
+            <Component {...pageProps} />
+            <ContactUs />
+            <Footer />
+          </motion.div>
+        </AnimatePresence>
+      )}
+    </>
   );
 }

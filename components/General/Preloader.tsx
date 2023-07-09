@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import curve from '../../public/images/restaurant/curve.png';
+import curve from '@/public/images/restaurant/curve.png';
 
 const Preloader = () => {
   return (
