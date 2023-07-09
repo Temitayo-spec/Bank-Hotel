@@ -8,30 +8,40 @@ import scattered_img_3 from '@/public/images/our_gallery/scattered_img_3.png';
 import scattered_img_4 from '@/public/images/our_gallery/scattered_img_4.png';
 import yellow_polygon from '@/public/svgs/yellow_polygon.svg';
 import { ParallaxText } from '@/components/General/ParallaxText';
+import Reveal from '@/components/General/Reveal';
 
 const OurGallery = () => {
   return (
     <Wrapper>
       <Inner>
-        <h2>Art & Congress Hall</h2>
+        <h2>
+          <Reveal>Art & Congress Hall</Reveal>
+        </h2>
+
         <Main>
           <Header>
             <Image src={label} alt="label" />
-            <h1>Our Gallery</h1>
+            <Reveal textDelay={0.5} slideDelay={0.5} width="auto">
+              <h1>Our Gallery</h1>
+            </Reveal>
             <p>
-              Explore our spacious rooms with the gorgeous view to the
-              historical part of the city. Each room has an exclusive interior
-              design decorated with modern art pieces that will make your stay
-              unforgettable.
+              <Reveal textDelay={0.5} slideDelay={0.5} width="fit-content">
+                Explore our spacious rooms with the gorgeous view to the
+                historical part of the city. Each room has an exclusive interior
+                design decorated with modern art pieces that will make your stay
+                unforgettable.
+              </Reveal>
             </p>
           </Header>
           <CenterImgCtn>
             <Image src={center_img} alt="center_image" />
             <SmallText>
               <Image src={yellow_polygon} alt="yellow_polygon" />
-              <p>
-                It is our pleasure to meet your most unrealistic expectations.
-              </p>
+              <Reveal>
+                <p>
+                  It is our pleasure to meet your most unrealistic expectations.
+                </p>
+              </Reveal>
             </SmallText>
           </CenterImgCtn>
           <ScatteredImgCtn>

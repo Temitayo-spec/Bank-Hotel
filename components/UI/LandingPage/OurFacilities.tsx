@@ -9,19 +9,28 @@ import row_img_1 from '@/public/images/our_facilities/row_img_1.png';
 import arrow from '@/public/svgs/arrow.svg';
 import row_img_2 from '@/public/images/our_facilities/row_img_2.png';
 import label from '@/public/images/our_facilities/label.svg';
+import Reveal from '@/components/General/Reveal';
 
 const OurFacilities = () => {
   return (
     <Wrapper id="facilities">
       <Inner>
         <Header>
-          <P>Art & Congress Hall</P>
+          <Reveal>
+            <P>Art & Congress Hall</P>
+          </Reveal>
           <CustomH1Ctn>
-            <h1>Our</h1>
-            <h1>Faci</h1>
+            <Reveal textDelay={0.5} slideDelay={0.5}>
+              <h1>Our</h1>
+            </Reveal>
+            <Reveal textDelay={1} slideDelay={1}>
+              <h1>Faci</h1>
+            </Reveal>
             <h1>
               <Image src={star} alt="star" />
-              Lities
+              <Reveal textDelay={1.5} slideDelay={1.5}>
+                Lities
+              </Reveal>
             </h1>
           </CustomH1Ctn>
           <Image src={img_1} alt="image_1" />
@@ -31,12 +40,14 @@ const OurFacilities = () => {
             <Image src={label} alt="label" />
             <Image src={img_2} alt="image_2" />
           </ImageCtn>
-          <p>
-            Bank Hotel offers you a wide range of additional services and
-            facilities. Visit our restaurant to try exclusive meals, book a
-            conference hall to organize a business meeting, or relax in the
-            art-bar.
-          </p>
+          <Reveal>
+            <p>
+              Bank Hotel offers you a wide range of additional services and
+              facilities. Visit our restaurant to try exclusive meals, book a
+              conference hall to organize a business meeting, or relax in the
+              art-bar.
+            </p>
+          </Reveal>
         </SectionOne>
         <SectionTwo>
           <LHS>
@@ -44,17 +55,23 @@ const OurFacilities = () => {
               <Image src={room_btn_default} alt="btn_default" />
             </ButtonCtn>
             <RoomDetails>
-              <Numbering>01</Numbering>
+              <Reveal>
+                <Numbering>01</Numbering>
+              </Reveal>
               <Info>
-                <h2>
-                  Ice <br /> Restaurant
-                </h2>
-                <p>
-                  The hotel’s exclusive infrastructure is complemented by the
-                  unique atmosphere of the Safe Restaurant. Author’s menu,
-                  extensive wine card, and live music will set you for the
-                  correct mood.
-                </p>
+                <Reveal textDelay={0.5} slideDelay={0.5}>
+                  <h2>
+                    Ice <br /> Restaurant
+                  </h2>
+                </Reveal>
+                <Reveal textDelay={1} slideDelay={1}>
+                  <p>
+                    The hotel’s exclusive infrastructure is complemented by the
+                    unique atmosphere of the Safe Restaurant. Author’s menu,
+                    extensive wine card, and live music will set you for the
+                    correct mood.
+                  </p>
+                </Reveal>
               </Info>
             </RoomDetails>
           </LHS>
@@ -66,8 +83,12 @@ const OurFacilities = () => {
           <Row>
             <Image src={row_img_1} alt="row_img_1" />
             <h2>
-              <span>02</span>
-              Conference Hall
+              <Reveal>
+                <span>02</span>
+              </Reveal>
+              <Reveal textDelay={0.5} slideDelay={0.5}>
+                Conference Hall
+              </Reveal>
             </h2>
             <Image src={arrow} alt="arrow" />
           </Row>
@@ -75,8 +96,12 @@ const OurFacilities = () => {
           <Row>
             <Image src={row_img_2} alt="row_img_1" />
             <h2>
-              <span>03</span>
-              Wine bar “reserve”
+              <Reveal>
+                <span>03</span>
+              </Reveal>
+              <Reveal textDelay={0.5} slideDelay={0.5}>
+                Wine bar “reserve”
+              </Reveal>
             </h2>
             <Image src={arrow} alt="arrow" />
           </Row>
@@ -442,7 +467,8 @@ const Row = styled.div`
     line-height: 3.125rem;
     letter-spacing: 0.09375rem;
     text-transform: capitalize;
-
+    display: flex;
+    align-items: center;
     span {
       margin-right: 2em;
     }

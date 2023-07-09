@@ -5,6 +5,7 @@ import about_us_img_2 from '@/public/images/about_us_img_2.png';
 import about_us_img_3 from '@/public/images/about_us_img_3.png';
 import about_us_label from '@/public/images/about_us_label.png';
 import about_us_lines from '@/public/images/about_us_lines.png';
+import Reveal from '@/components/General/Reveal';
 
 const AboutUs = () => {
   return (
@@ -15,17 +16,23 @@ const AboutUs = () => {
         </LHS>
         <Middle>
           <TitleCtn>
-            <h1>ABOUT</h1>
-            <h1>US</h1>
+            <Reveal overflow="visible">
+              <h1>ABOUT</h1>
+              <h1>US</h1>
+            </Reveal>
           </TitleCtn>
           <SubtitleCtn>
-            <h3>High Quality</h3>
-            <p>
-              The five-star Bank Hotel was reopened to visitors in 2016. The
-              building was renovated and modernized to meet the expectations of
-              the most demanding guests. We offer luxurious rooms, numerous
-              facilities, and exceptional service.{' '}
-            </p>
+            <Reveal textDelay={0.5} slideDelay={0.5}>
+              <h3>High Quality</h3>
+            </Reveal>
+            <Reveal textDelay={1} slideDelay={1}>
+              <p>
+                The five-star Bank Hotel was reopened to visitors in 2016. The
+                building was renovated and modernized to meet the expectations
+                of the most demanding guests. We offer luxurious rooms, numerous
+                facilities, and exceptional service.
+              </p>
+            </Reveal>
           </SubtitleCtn>
         </Middle>
         <RHS>

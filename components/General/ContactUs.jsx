@@ -6,6 +6,7 @@ import curve from '@/public/images/contact_us/Curve.svg';
 import curve_2 from '@/public/images/restaurant/Curve.png';
 import ic_chevron_down from '@/public/svgs/ic-chevron-down.svg';
 import { useRouter } from 'next/router';
+import Reveal from './Reveal';
 
 const ContactUs = () => {
   const { pathname } = useRouter();
@@ -30,29 +31,33 @@ const ContactUs = () => {
               : ''
           }
         >
-          <ContactNumber
-            className={
-              pathname === '/restaurant' ||
-              pathname === '/restaurant/' ||
-              pathname.includes('/restaurant')
-                ? 'restaurant'
-                : ''
-            }
-          >
-            +38 032 297 50 20
-          </ContactNumber>
+          <Reveal>
+            <ContactNumber
+              className={
+                pathname === '/restaurant' ||
+                pathname === '/restaurant/' ||
+                pathname.includes('/restaurant')
+                  ? 'restaurant'
+                  : ''
+              }
+            >
+              +38 032 297 50 20
+            </ContactNumber>
+          </Reveal>
           <div></div>
-          <ContactAddress
-            className={
-              pathname === '/restaurant' ||
-              pathname === '/restaurant/' ||
-              pathname.includes('/restaurant')
-                ? 'restaurant'
-                : ''
-            }
-          >
-            <p>8 Lystopadovoho Chynu, Lviv</p>
-          </ContactAddress>
+          <Reveal textDelay={0.5} slideDelay={0.5}>
+            <ContactAddress
+              className={
+                pathname === '/restaurant' ||
+                pathname === '/restaurant/' ||
+                pathname.includes('/restaurant')
+                  ? 'restaurant'
+                  : ''
+              }
+            >
+              <p>8 Lystopadovoho Chynu, Lviv</p>
+            </ContactAddress>
+          </Reveal>
         </Top>
         <LargeText
           className={
@@ -64,12 +69,16 @@ const ContactUs = () => {
           }
         >
           <h1>
-            Get in
+            <Reveal>Get in</Reveal>
             <span>
               <Image src={star} alt="star" />
             </span>
           </h1>
-          <h1>touch</h1>
+          <h1>
+            <Reveal textDelay={0.5} slideDelay={0.5}>
+              touch
+            </Reveal>
+          </h1>
         </LargeText>
         <AbsoluteImages>
           <Image src={contact_us_img} alt="contact_us_img" />
@@ -89,7 +98,10 @@ const ContactUs = () => {
               : ''
           }
         >
-          <h2>Find a Room</h2>
+          <Reveal>
+            <h2>Find a Room</h2>
+          </Reveal>
+
           <ButtonContainer
             className={
               pathname === '/restaurant' ||

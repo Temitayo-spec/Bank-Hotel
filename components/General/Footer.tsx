@@ -2,6 +2,7 @@ import Image from 'next/image';
 import styled from 'styled-components';
 import ic_arrow_small from '@/public/svgs/ic_arrow_small.svg';
 import { useRouter } from 'next/router';
+import Reveal from './Reveal';
 
 const Footer = (): JSX.Element => {
   const { pathname } = useRouter();
@@ -26,11 +27,15 @@ const Footer = (): JSX.Element => {
                 : ''
             }
           >
-            <h2>About us</h2>
-            <p>
-              The five-star hotel in a beautiful European city with a modern
-              restaurant, conference-hall, and art-bar.
-            </p>
+            <Reveal>
+              <h2>About us</h2>
+            </Reveal>
+            <Reveal textDelay={0.5} slideDelay={0.5}>
+              <p>
+                The five-star hotel in a beautiful European city with a modern
+                restaurant, conference-hall, and art-bar.
+              </p>
+            </Reveal>
           </MainText>
           <SubText
             className={
@@ -41,7 +46,9 @@ const Footer = (): JSX.Element => {
                 : ''
             }
           >
-            ©2021 All rights reserved. BankHotel
+            <Reveal textDelay={1} slideDelay={1}>
+              ©2021 All rights reserved. BankHotel
+            </Reveal>
           </SubText>
         </AboutUsCtn>
         <News
@@ -53,11 +60,15 @@ const Footer = (): JSX.Element => {
               : ''
           }
         >
-          <h2>News</h2>
-          <p>
-            Sign up to our newsletter not to miss exclusive offers and
-            information about the upcoming events.
-          </p>
+          <Reveal>
+            <h2>News</h2>
+          </Reveal>
+          <Reveal textDelay={0.5} slideDelay={0.5}>
+            <p>
+              Sign up to our newsletter not to miss exclusive offers and
+              information about the upcoming events.
+            </p>
+          </Reveal>
           <InputCtn
             className={
               pathname === '/restaurant' ||
@@ -80,11 +91,19 @@ const Footer = (): JSX.Element => {
               : ''
           }
         >
-          <h2>Social</h2>
+          <Reveal>
+            <h2>Social</h2>
+          </Reveal>
           <ul>
-            <li>Facebook</li>
-            <li>Instagram</li>
-            <li>Twitter</li>
+            <Reveal textDelay={0.5} slideDelay={0.5}>
+              <li>Facebook</li>
+            </Reveal>
+            <Reveal textDelay={0.75} slideDelay={0.75}>
+              <li>Instagram</li>
+            </Reveal>
+            <Reveal textDelay={1} slideDelay={1}>
+              <li>Twitter</li>
+            </Reveal>
           </ul>
         </Socials>
       </Inner>

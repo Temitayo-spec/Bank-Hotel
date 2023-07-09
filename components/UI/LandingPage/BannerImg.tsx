@@ -2,6 +2,7 @@ import Image from 'next/image';
 import styled from 'styled-components';
 import banner_img from '@/public/images/banner_img.png';
 import ic_chevron_down from '@/public/svgs/ic-chevron-down.svg';
+import Reveal from '@/components/General/Reveal';
 
 const BannerImg = () => {
   return (
@@ -35,12 +36,18 @@ const BannerImg = () => {
         </ImageCtn>
         <BottomTextCtn>
           <Contact>
-            <h3>+38 032 297 50 20</h3>
-            <h3>8 Lystopadovoho Chynu,Lviv</h3>
+            <Reveal>
+              <h3>+38 032 297 50 20</h3>
+            </Reveal>
+            <Reveal textDelay={0.5} slideDelay={0.5}>
+              <h3>8 Lystopadovoho Chynu,Lviv</h3>
+            </Reveal>
           </Contact>
           <Suite>
-            <h3>Art & Congress</h3>
-            <span>Hall</span>
+            <Reveal textDelay={1} slideDelay={1}>
+              <h3>Art & Congress</h3>
+              <span>Hall</span>
+            </Reveal>
           </Suite>
         </BottomTextCtn>
       </Inner>

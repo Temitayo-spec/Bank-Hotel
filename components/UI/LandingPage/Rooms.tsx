@@ -5,17 +5,22 @@ import room_btn_default from '@/public/svgs/room_btn_default.svg';
 import star from '@/public/svgs/ic-star.svg';
 import yellow_polygon from '@/public/svgs/yellow_polygon.svg';
 import Image from 'next/image';
+import Reveal from '@/components/General/Reveal';
 
 const Rooms = () => {
   return (
     <Wrapper>
       <Inner>
         <Header>
-          <h1>Rooms & Apartments</h1>
-          <p>
-            All room decoration was made with ecological certified and safe
-            materials.
-          </p>
+          <Reveal>
+            <h1>Rooms & Apartments</h1>
+          </Reveal>
+          <Reveal textDelay={0.5} slideDelay={0.5}>
+            <p>
+              All room decoration was made with ecological certified and safe
+              materials.
+            </p>
+          </Reveal>
         </Header>
         <Main>
           <LHS>
@@ -29,17 +34,24 @@ const Rooms = () => {
             </Year>
             <MidTextCtn>
               <div>
-                <h2>Superior Twin</h2>
-                <p>
-                  The Superior twin is perfect for those who plan to stay long.
-                  The spacious and bright room is equipped with deluxe Italian
-                  furniture and has a beautiful view to the historical part of
-                  the city. Stylish interior design and comfortable beds will
-                  make your stay cozy and pleasant.
-                </p>
+                <Reveal>
+                  <h2>Superior Twin</h2>
+                </Reveal>
+
+                <Reveal textDelay={0.5} slideDelay={0.5}>
+                  <p>
+                    The Superior twin is perfect for those who plan to stay
+                    long. The spacious and bright room is equipped with deluxe
+                    Italian furniture and has a beautiful view to the historical
+                    part of the city. Stylish interior design and comfortable
+                    beds will make your stay cozy and pleasant.
+                  </p>
+                </Reveal>
               </div>
               <RoomOf>
-                <span>01 </span>  /  <span>04</span>
+                <Reveal textDelay={1} slideDelay={1}>
+                  <span>01 </span> / <span>04</span>
+                </Reveal>
               </RoomOf>
             </MidTextCtn>
           </Middle>

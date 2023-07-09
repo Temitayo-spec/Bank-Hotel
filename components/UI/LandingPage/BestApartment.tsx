@@ -2,17 +2,22 @@ import Image from 'next/image';
 import styled from 'styled-components';
 import line from '@/public/images/best_apartment/line.png';
 import bg from '@/public/images/best_apartment/bg.png';
+import Reveal from '@/components/General/Reveal';
 
 const BestApartment = () => {
   return (
     <Wrapper>
       <Inner>
-        <h1>
-          Best <br /> Apartments
-        </h1>
+        <Reveal>
+          <h1>
+            Best <br /> Apartments
+          </h1>
+        </Reveal>
         <p>
-          All room decoration was made with ecological certified and safe
-          materials.
+          <Reveal textDelay={0.5} slideDelay={0.5}>
+            All room decoration was made with ecological certified and safe
+            materials.
+          </Reveal>
         </p>
         <Image src={line} alt="line" />
       </Inner>

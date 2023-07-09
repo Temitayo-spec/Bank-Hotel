@@ -3,6 +3,8 @@ import styled from 'styled-components';
 import star from '@/public/svgs/ic-star.svg';
 import button_default from '@/public/images/button_default.png';
 import BannerImg from './BannerImg';
+import { motion } from 'framer-motion';
+import Reveal from '@/components/General/Reveal';
 
 const Banner = (): JSX.Element => {
   return (
@@ -10,10 +12,14 @@ const Banner = (): JSX.Element => {
       <Inner>
         <TextContainer>
           <LHS>
-            <h1>
-              Bank<span>Hotel</span>
-            </h1>
-            <p>rooms // restaurant // congress hall // wine bar</p>
+            <Reveal width="100%">
+              <h1>
+                Bank<span>Hotel</span>
+              </h1>
+            </Reveal>
+            <Reveal width="100%" textDelay={0.5} slideDelay={0.5}>
+              <p>rooms // restaurant // congress hall // wine bar</p>
+            </Reveal>
           </LHS>
           <RHS>
             <Top>
@@ -24,10 +30,12 @@ const Banner = (): JSX.Element => {
               <Image src={button_default} alt="button_default" />
             </Top>
             <Bottom>
-              <p>
-                The luxurious hotel in the most beautiful European city with an
-                exclusive restaurant, conference-hall, and art-bar.
-              </p>
+              <Reveal width="100%" textDelay={1} slideDelay={1}>
+                <p>
+                  The luxurious hotel in the most beautiful European city with
+                  an exclusive restaurant, conference-hall, and art-bar.
+                </p>
+              </Reveal>
             </Bottom>
           </RHS>
         </TextContainer>
