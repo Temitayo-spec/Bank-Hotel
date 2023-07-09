@@ -13,12 +13,14 @@ const SectionThree = () => {
         <Grid>
           <GridItems>
             <Image src={twin_img1} alt="twin_img1" />
-            <h2>Superior Twin</h2>
-            <p>
-              All rooms in Bank Hotel have a special charm achieved through a
-              combination of modern functional design and original 20th century
-              layout.
-            </p>
+            <div>
+              <h2>Superior Twin</h2>
+              <p>
+                All rooms in Bank Hotel have a special charm achieved through a
+                combination of modern functional design and original 20th
+                century layout.
+              </p>
+            </div>
           </GridItems>
           <GridItems>
             <Image src={twin_img2} alt="twin_img1" />
@@ -63,6 +65,17 @@ const Inner = styled.div`
     object-fit: contain;
   }
 
+  @media (min-width: 200px) and (max-width: 767px) {
+    width: 95%;
+
+    & > img {
+      width: 3.16694rem;
+      height: 4.39531rem;
+      top: 70%;
+      left: 80%;
+    }
+  }
+
   @media (min-width: 768px) and (max-width: 1024px) {
     & > img {
       width: 3.16694rem;
@@ -79,13 +92,23 @@ const Grid = styled.div`
   align-items: flex-start;
   gap: 10em;
   margin-top: 5em;
+
+  @media (min-width: 200px) and (max-width: 767px) {
+    grid-template-columns: repeat(1, 1fr);
+    gap: 3em;
+  }
 `;
 
 const GridItems = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 2.5em;
   color: var(--text-color-tertiary, #1b3b36);
+
+  & > div {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5em;
+  }
 
   img {
     width: 100%;
@@ -109,6 +132,30 @@ const GridItems = styled.div`
     line-height: 1.75rem;
     opacity: 0.8;
     width: 85%;
+  }
+
+  @media (min-width: 200px) and (max-width: 767px) {
+    flex-direction: column-reverse;
+    gap: 1.5em;
+
+    & > div {
+      gap: 1.5em;
+    }
+
+    h2 {
+      font-size: 1.875rem;
+      line-height: 1.875rem;
+      letter-spacing: 0.05625rem;
+    }
+
+    p {
+      font-size: 0.8125rem;
+      line-height: 1.4375rem;
+    }
+
+    &:last-child img {
+      display: none;
+    }
   }
 
   @media (min-width: 768px) and (max-width: 1024px) {
@@ -139,8 +186,8 @@ const BookRoomBtn = styled.button`
   }
 
   @media (min-width: 200px) and (max-width: 767px) {
-    bottom: 1em;
-    right: 1em;
+    margin-left: auto;
+    margin-top: -4em;
     width: 7rem;
     height: 7rem;
     img {

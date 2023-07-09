@@ -43,7 +43,7 @@ const Wrapper = styled.div`
   background-color: var(--bg-color);
 
   @media (min-width: 200px) and (max-width: 767px) {
-    padding: 1em 0 0 0;
+    padding: 5em 0 0 0;
   }
 
   position: relative;
@@ -71,6 +71,19 @@ const Inner = styled.div`
     object-fit: cover;
     position: relative;
     z-index: 1;
+  }
+
+  @media (min-width: 200px) and (max-width: 767px) {
+    width: 95%;
+    h2:nth-child(4) {
+      font-size: 1.25rem;
+    }
+
+    img:last-child {
+      width: 100%;
+      object-fit: cover;
+      height: 26.721rem;
+    }
   }
 
   @media (min-width: 768px) and (max-width: 1024px) {
@@ -103,6 +116,22 @@ const FlexTextCtn = styled.div`
     line-height: 1.75rem;
     opacity: 0.8;
     flex: 1;
+  }
+
+  @media (min-width: 200px) and (max-width: 767px) {
+    flex-direction: column;
+    gap: 2.5em;
+
+    h2 {
+      font-size: 1.875rem;
+      line-height: 1.875rem;
+      letter-spacing: 0.05625rem;
+    }
+
+    p {
+      font-size: 0.8125rem;
+      line-height: 1.4375rem;
+    }
   }
 
   @media (min-width: 768px) and (max-width: 1024px) {
@@ -153,9 +182,15 @@ const Year = styled.div`
     font-weight: var(--font-weight-normal);
     font-size: var(--font-size-xxl);
     text-transform: capitalize;
-    color: #fffcf6;
+    color: var(--text-color-primary);
   }
 
-  @media (min-width: 200px) and (max-width: 1024px) {
+  @media (min-width: 200px) and (max-width: 767px) {
+    padding: 1rem;
+    height: 3.125rem;
+    margin-bottom: 2.5rem;
+    span {
+      font-size: 1rem;
+    }
   }
 `;

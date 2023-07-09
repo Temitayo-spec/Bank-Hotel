@@ -7,7 +7,6 @@ const Banner = () => {
   return (
     <Wrapper>
       <Inner>
-        <Image src={big_banner} alt="big_banner" />
         <TextContent>
           <h1>
             Superior <span>twin</span>
@@ -33,25 +32,26 @@ export default Banner;
 const Wrapper = styled.div`
   width: 100%;
   height: 100%;
-  margin-bottom: -6px;
+  position: relative;
+  @media (min-width: 200px) and (max-width: 767px) {
+    margin-top: -95px;
+    z-index: 4;
+  }
 `;
 
 const Inner = styled.div`
-  position: relative;
-  img {
+  background: url(${big_banner.src}) no-repeat center center;
+  padding: 2em 0;
+  @media (min-width: 200px) and (max-width: 767px) {
+    width: 95%;
     width: 100%;
-    height: 100%;
-    object-fit: cover;
+    height: 29rem;
   }
 `;
 
 const TextContent = styled.div`
-  position: absolute;
-  top: 20px;
-  left: 50%;
-  transform: translate(-50%);
   width: 95%;
-  margin: 1em auto;
+  margin: 0 auto;
 
   h1 {
     color: var(--text-color-secondary, #fcd043);
@@ -61,6 +61,19 @@ const TextContent = styled.div`
     line-height: 9.375rem;
     display: flex;
     flex-direction: column;
+  }
+
+  @media (min-width: 200px) and (max-width: 767px) {
+    height: 100%;
+    h1 {
+      font-size: 4.375rem;
+      line-height: 3.75rem;
+      margin-top: 80px;
+    }
+
+    p {
+      display: none;
+    }
   }
 
   @media (min-width: 769px) and (max-width: 1024px) {
@@ -120,10 +133,13 @@ const BookRoomBtn = styled.button`
   }
 
   @media (min-width: 200px) and (max-width: 767px) {
-    bottom: 1em;
+    position: absolute;
+    bottom: -4em;
     right: 1em;
     width: 7rem;
     height: 7rem;
+    z-index: 4;
+
     img {
       width: 100%;
       height: 100%;
