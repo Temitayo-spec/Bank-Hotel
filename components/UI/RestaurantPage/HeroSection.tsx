@@ -3,25 +3,34 @@ import styled from 'styled-components';
 import label from '@/public/images/restaurant/label.svg';
 import vector from '@/public/images/restaurant/Vector.png';
 import ellipse from '@/public/images/restaurant/Ellipse.png';
+import Reveal from '@/components/General/Reveal';
 
 const HeroSection = () => {
   return (
     <Wrapper>
       <Inner>
-        <Title>“Safe” restaurant</Title>
+        <Reveal>
+          <Title>“Safe” restaurant</Title>
+        </Reveal>
         <Description>
-          <h2>One of a Kind</h2>
+          <h2>
+            <Reveal textDelay={0.5} slideDelay={0.5}>
+              One of a Kind
+            </Reveal>
+          </h2>
           <SubTextCtn>
             <span>
               <Image src={label} alt="label" />
             </span>
-            <p>
-              Bank Hotel proudly welcomes you to the Safe Restaurant, a place
-              where you will wish you could dine every day. The restaurant
-              offers a unique menu developed by the team of professionals led by
-              chef Mary-Ann Jones, the wine list with more than 250 items, the
-              outstanding service, and the unforgettable atmosphere.
-            </p>
+            <Reveal textDelay={0.75} slideDelay={0.75}>
+              <p>
+                Bank Hotel proudly welcomes you to the Safe Restaurant, a place
+                where you will wish you could dine every day. The restaurant
+                offers a unique menu developed by the team of professionals led
+                by chef Mary-Ann Jones, the wine list with more than 250 items,
+                the outstanding service, and the unforgettable atmosphere.
+              </p>
+            </Reveal>
           </SubTextCtn>
         </Description>
       </Inner>

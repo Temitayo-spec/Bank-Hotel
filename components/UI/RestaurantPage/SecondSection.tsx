@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import restaurant_img_1 from '@/public/images/restaurant/restaurant_img_1.png';
 import restaurant_img_2 from '@/public/images/restaurant/restaurant_img_2.png';
 import Image from 'next/image';
+import Reveal from '@/components/General/Reveal';
 
 const SecondSection = () => {
   return (
@@ -10,15 +11,19 @@ const SecondSection = () => {
         <LHS>
           <Image src={restaurant_img_1} alt="restaurant_img_1" />
           <TextCtn>
-            <h2>at your service</h2>
-            <p>
-              The team of the Safe Restaurant aims to exceed all expectations of
-              our guests. Our chef worked hard to develop a unique menu that
-              features the best meals of the European cuisine that will match
-              the tastes of the most demanding clients. Friendly and attentive
-              waiters will ensure that you will enjoy your time in our
-              restaurant.
-            </p>
+            <Reveal>
+              <h2>at your service</h2>
+            </Reveal>
+            <Reveal textDelay={0.5} slideDelay={0.5}>
+              <p>
+                The team of the Safe Restaurant aims to exceed all expectations
+                of our guests. Our chef worked hard to develop a unique menu
+                that features the best meals of the European cuisine that will
+                match the tastes of the most demanding clients. Friendly and
+                attentive waiters will ensure that you will enjoy your time in
+                our restaurant.
+              </p>
+            </Reveal>
           </TextCtn>
         </LHS>
         <RHS>

@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import restaurant_img_3 from '@/public/images/restaurant/restaurant_img_3.png';
 import restaurant_img_4 from '@/public/images/restaurant/restaurant_img_4.png';
 import Image from 'next/image';
+import Reveal from '@/components/General/Reveal';
 
 const ThirdSection = () => {
   return (
@@ -10,32 +11,40 @@ const ThirdSection = () => {
         <Header>
           <div></div>
           <h2>
-            Once you try our cuisine and service, you shall never want to visit
-            another restaurant.
+            <Reveal>
+              Once you try our cuisine and service, you shall never want to
+              visit another restaurant.
+            </Reveal>
           </h2>
         </Header>
         <Grid>
           <GridItem>
             <Image src={restaurant_img_3} alt="restaurant_img_3" />
-            <h3>
-              All room decoration was made with ecological certified and safe
-              materials.
-            </h3>
+            <Reveal>
+              <h3>
+                All room decoration was made with ecological certified and safe
+                materials.
+              </h3>
+            </Reveal>
           </GridItem>
           <GridItem>
             <Image src={restaurant_img_4} alt="restaurant_img_4" />
             <TextCtn>
-              <h2>
-                Spend Your Time <br /> With Us
-              </h2>
-              <p>
-                If you are looking for an exclusive place to have a romantic
-                dinner, organize a business meeting, or spend an enjoyable
-                evening with friends, visit Safe Restaurant in Bank Hotel. With
-                our delicious meals, unique interior design, and atmosphere of
-                comfort and exquisiteness you shall never want to go to a
-                different restaurant.
-              </p>
+              <Reveal textDelay={0.5} slideDelay={0.5}>
+                <h2>
+                  Spend Your Time <br /> With Us
+                </h2>
+              </Reveal>
+              <Reveal textDelay={0.75} slideDelay={0.75}>
+                <p>
+                  If you are looking for an exclusive place to have a romantic
+                  dinner, organize a business meeting, or spend an enjoyable
+                  evening with friends, visit Safe Restaurant in Bank Hotel.
+                  With our delicious meals, unique interior design, and
+                  atmosphere of comfort and exquisiteness you shall never want
+                  to go to a different restaurant.
+                </p>
+              </Reveal>
             </TextCtn>
           </GridItem>
         </Grid>
