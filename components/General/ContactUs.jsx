@@ -3,20 +3,66 @@ import styled from 'styled-components';
 import star from '@/public/svgs/ic-star.svg';
 import contact_us_img from '@/public/images/contact_us/contact_us_img.png';
 import curve from '@/public/images/contact_us/Curve.svg';
+import curve_2 from '@/public/images/restaurant/Curve.png';
 import ic_chevron_down from '@/public/svgs/ic-chevron-down.svg';
+import { useRouter } from 'next/router';
 
 const ContactUs = () => {
+  const { pathname } = useRouter();
   return (
-    <Wrapper id="contacts">
+    <Wrapper
+      id="contacts"
+      className={
+        pathname === '/restaurant' ||
+        pathname === '/restaurant/' ||
+        pathname.includes('/restaurant')
+          ? 'restaurant'
+          : ''
+      }
+    >
       <Inner>
-        <Top>
-          <ContactNumber>+38 032 297 50 20</ContactNumber>
+        <Top
+          className={
+            pathname === '/restaurant' ||
+            pathname === '/restaurant/' ||
+            pathname.includes('/restaurant')
+              ? 'restaurant'
+              : ''
+          }
+        >
+          <ContactNumber
+            className={
+              pathname === '/restaurant' ||
+              pathname === '/restaurant/' ||
+              pathname.includes('/restaurant')
+                ? 'restaurant'
+                : ''
+            }
+          >
+            +38 032 297 50 20
+          </ContactNumber>
           <div></div>
-          <ContactAddress>
-            <p>8 Lystopadovoho Chynu,Lviv</p>
+          <ContactAddress
+            className={
+              pathname === '/restaurant' ||
+              pathname === '/restaurant/' ||
+              pathname.includes('/restaurant')
+                ? 'restaurant'
+                : ''
+            }
+          >
+            <p>8 Lystopadovoho Chynu, Lviv</p>
           </ContactAddress>
         </Top>
-        <LargeText>
+        <LargeText
+          className={
+            pathname === '/restaurant' ||
+            pathname === '/restaurant/' ||
+            pathname.includes('/restaurant')
+              ? 'restaurant'
+              : ''
+          }
+        >
           <h1>
             Get in
             <span>
@@ -27,13 +73,42 @@ const ContactUs = () => {
         </LargeText>
         <AbsoluteImages>
           <Image src={contact_us_img} alt="contact_us_img" />
-          <Image src={curve} alt="curve" />
+          {pathname === '/restaurant' ? (
+            <Image src={curve_2} alt="curve_2" />
+          ) : (
+            <Image src={curve} alt="curve" />
+          )}
         </AbsoluteImages>
 
-        <FindRoomCtn>
+        <FindRoomCtn
+          className={
+            pathname === '/restaurant' ||
+            pathname === '/restaurant/' ||
+            pathname.includes('/restaurant')
+              ? 'restaurant'
+              : ''
+          }
+        >
           <h2>Find a Room</h2>
-          <ButtonContainer>
-            <CheckInBtn type="button">
+          <ButtonContainer
+            className={
+              pathname === '/restaurant' ||
+              pathname === '/restaurant/' ||
+              pathname.includes('/restaurant')
+                ? 'restaurant'
+                : ''
+            }
+          >
+            <CheckInBtn
+              className={
+                pathname === '/restaurant' ||
+                pathname === '/restaurant/' ||
+                pathname.includes('/restaurant')
+                  ? 'restaurant'
+                  : ''
+              }
+              type="button"
+            >
               <span>Check In</span>
               <Image
                 src={ic_chevron_down}
@@ -42,7 +117,16 @@ const ContactUs = () => {
                 height={20}
               />
             </CheckInBtn>
-            <CheckOutBtn type="button">
+            <CheckOutBtn
+              className={
+                pathname === '/restaurant' ||
+                pathname === '/restaurant/' ||
+                pathname.includes('/restaurant')
+                  ? 'restaurant'
+                  : ''
+              }
+              type="button"
+            >
               <span>Check Out</span>
               <Image
                 src={ic_chevron_down}
@@ -51,7 +135,16 @@ const ContactUs = () => {
                 height={20}
               />
             </CheckOutBtn>
-            <BookRoom type="button">
+            <BookRoom
+              className={
+                pathname === '/restaurant' ||
+                pathname === '/restaurant/' ||
+                pathname.includes('/restaurant')
+                  ? 'restaurant'
+                  : ''
+              }
+              type="button"
+            >
               <span>Book Room</span>
             </BookRoom>
           </ButtonContainer>
@@ -67,6 +160,10 @@ export default ContactUs;
 const Wrapper = styled.div`
   background: var(--text-color-primary, #fffcf6);
   width: 100%;
+
+  &.restaurant {
+    background: var(--bg-color);
+  }
 `;
 
 const Inner = styled.div`
@@ -87,18 +184,35 @@ const Top = styled.div`
   grid-template-columns: 2fr 1fr 1fr;
   height: 20vh;
   margin-bottom: 10em;
+  color: var(--text-color-tertiary, #1b3b36);
+
+  &.restaurant {
+    color: var(--text-color-primary, #fffcf6);
+    display: flex;
+    flex-direction: row-reverse;
+  }
 
   @media (min-width: 200px) and (max-width: 767px) {
     grid-template-columns: 2fr 1fr;
+
+    &.restaurant {
+      flex-direction: column;
+    }
   }
 `;
 
 const ContactNumber = styled.div`
-  color: var(--text-color-tertiary, #1b3b36);
   font-family: var(--font-primary);
-  font-size: 3.125rem;
+  font-size: 2.5rem;
   font-weight: var(--font-weight-normal);
   line-height: 3.125rem;
+
+  &.restaurant {
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+    text-decoration: underline;
+  }
 
   @media (min-width: 200px) and (max-width: 767px) {
     font-size: 1.125rem;
@@ -114,13 +228,22 @@ const ContactNumber = styled.div`
 const ContactAddress = styled.div`
   display: flex;
   align-items: flex-end;
-  color: var(--text-color-tertiary, #1b3b36);
 
   p {
     font-family: var(--font-primary);
     font-size: var(--font-size-lg);
     font-weight: var(--font-weight-normal);
     text-transform: uppercase;
+  }
+
+  &.restaurant {
+    display: block;
+    width: 100%;
+    margin-left: 0;
+
+    p {
+      width: 45%;
+    }
   }
 
   @media (min-width: 200px) and (max-width: 767px) {
@@ -156,6 +279,12 @@ const LargeText = styled.div`
         height: 100%;
         object-fit: cover;
       }
+    }
+  }
+
+  &.restaurant {
+    h1 {
+      color: var(--text-color-primary, #fffcf6);
     }
   }
 
@@ -236,6 +365,12 @@ const FindRoomCtn = styled.div`
     text-transform: uppercase;
   }
 
+  &.restaurant {
+    h2 {
+      color: var(--text-color-primary, #fffcf6);
+    }
+  }
+
   @media (min-width: 200px) and (max-width: 767px) {
     h2 {
       display: none;
@@ -279,7 +414,7 @@ const ButtonContainer = styled.div`
 
 const CheckInBtn = styled.button`
   border: 1px solid #313f38;
-  background: var(--white, #fffcf6);
+  background: var(--text-color-primary, #fffcf6);
   backdrop-filter: blur(20px);
   color: var(--text-color-tertiary, #313f38);
   font-size: var(--font-size-md);
@@ -291,6 +426,13 @@ const CheckInBtn = styled.button`
   justify-content: space-between;
   align-items: center;
   border-right: none;
+
+  &.restaurant {
+    color: var(--text-color-primary, #fffcf6);
+    border: 1px solid var(--white, #fffcf61a);
+    background: var(--white, #fffcf61a);
+    backdrop-filter: blur(20px);
+  }
 
   @media (min-width: 200px) and (max-width: 767px) {
     display: none !important;
@@ -312,6 +454,14 @@ const CheckOutBtn = styled.button`
   align-items: center;
   border-left: none;
   border-right: none;
+
+  &.restaurant {
+    color: var(--text-color-primary, #fffcf6);
+    border: 1px solid var(--white, #fffcf61a);
+    background: var(--white, #fffcf61a);
+    backdrop-filter: blur(20px);
+  }
+
   @media (min-width: 200px) and (max-width: 767px) {
     display: none !important;
   }
@@ -329,6 +479,12 @@ const BookRoom = styled.button`
   justify-content: center;
   align-items: center;
   border: none;
+
+  &.restaurant {
+    background: var(--text-color-secondary);
+    color: var(--text-color-tertiary, #313f38);
+  }
+
   @media (min-width: 200px) and (max-width: 767px) {
     background: var(--text-color-secondary);
   }

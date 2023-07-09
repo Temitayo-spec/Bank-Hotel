@@ -1,33 +1,85 @@
 import Image from 'next/image';
 import styled from 'styled-components';
 import ic_arrow_small from '@/public/svgs/ic_arrow_small.svg';
+import { useRouter } from 'next/router';
 
 const Footer = (): JSX.Element => {
+  const { pathname } = useRouter();
   return (
-    <Wrapper>
+    <Wrapper
+      className={
+        pathname === '/restaurant' ||
+        pathname === '/restaurant/' ||
+        pathname.includes('/restaurant')
+          ? 'restaurant'
+          : ''
+      }
+    >
       <Inner>
         <AboutUsCtn>
-          <MainText>
+          <MainText
+            className={
+              pathname === '/restaurant' ||
+              pathname === '/restaurant/' ||
+              pathname.includes('/restaurant')
+                ? 'restaurant'
+                : ''
+            }
+          >
             <h2>About us</h2>
             <p>
               The five-star hotel in a beautiful European city with a modern
               restaurant, conference-hall, and art-bar.
             </p>
           </MainText>
-          <SubText>©2021 All rights reserved. BankHotel</SubText>
+          <SubText
+            className={
+              pathname === '/restaurant' ||
+              pathname === '/restaurant/' ||
+              pathname.includes('/restaurant')
+                ? 'restaurant'
+                : ''
+            }
+          >
+            ©2021 All rights reserved. BankHotel
+          </SubText>
         </AboutUsCtn>
-        <News>
+        <News
+          className={
+            pathname === '/restaurant' ||
+            pathname === '/restaurant/' ||
+            pathname.includes('/restaurant')
+              ? 'restaurant'
+              : ''
+          }
+        >
           <h2>News</h2>
           <p>
             Sign up to our newsletter not to miss exclusive offers and
             information about the upcoming events.
           </p>
-          <InputCtn>
+          <InputCtn
+            className={
+              pathname === '/restaurant' ||
+              pathname === '/restaurant/' ||
+              pathname.includes('/restaurant')
+                ? 'restaurant'
+                : ''
+            }
+          >
             <input type="text" placeholder="Email" />
             <Image src={ic_arrow_small} alt="arrow" />
           </InputCtn>
         </News>
-        <Socials>
+        <Socials
+          className={
+            pathname === '/restaurant' ||
+            pathname === '/restaurant/' ||
+            pathname.includes('/restaurant')
+              ? 'restaurant'
+              : ''
+          }
+        >
           <h2>Social</h2>
           <ul>
             <li>Facebook</li>
@@ -46,11 +98,16 @@ const Wrapper = styled.footer`
   width: 100%;
   background-color: var(--text-color-primary);
   height: 60vh;
+
+  &.restaurant {
+    background-color: var(--bg-color);
+  }
+
   @media (min-width: 200px) and (max-width: 767px) {
     height: auto;
   }
   @media (min-width: 768px) and (max-width: 1024px) {
-    height: 50vh;
+    height: 100%;
   }
 `;
 
@@ -82,6 +139,17 @@ const MainText = styled.div`
   font-family: var(--font-primary);
   font-weight: var(--font-weight-normal);
   color: var(--text-color-tertiary, #1b3b36);
+
+  &.restaurant {
+    color: var(--text-color-primary);
+
+    h2::before {
+      content: '/';
+      margin-right: 0.1em;
+      color: var(--text-color-secondary);
+    }
+  }
+
   h2 {
     font-size: 1.625rem;
     text-transform: uppercase;
@@ -123,6 +191,10 @@ const SubText = styled.p`
   font-size: 0.875rem;
   line-height: 1.5rem;
   opacity: 0.24;
+
+  &.restaurant {
+    color: var(--text-color-primary);
+  }
 `;
 
 const News = styled.div`
@@ -132,6 +204,17 @@ const News = styled.div`
   font-family: var(--font-primary);
   font-weight: var(--font-weight-normal);
   color: var(--text-color-tertiary, #1b3b36);
+
+  &.restaurant {
+    color: var(--text-color-primary);
+
+    h2::before {
+      content: '/';
+      margin-right: 0.1em;
+      color: var(--text-color-secondary);
+    }
+  }
+
   h2 {
     font-size: 1.625rem;
     text-transform: uppercase;
@@ -196,6 +279,19 @@ const InputCtn = styled.div`
     }
   }
 
+  &.restaurant {
+    color: var(--text-color-primary);
+
+    input {
+      border: 1px solid var(--text-color-primary, #fffcf6);
+      backdrop-filter: blur(20px);
+
+      &::placeholder {
+        color: var(--text-color-tertiary, #fffcf6);
+      }
+    }
+  }
+
   img {
     position: absolute;
     top: 50%;
@@ -211,6 +307,16 @@ const Socials = styled.div`
   font-family: var(--font-primary);
   font-weight: var(--font-weight-normal);
   color: var(--text-color-tertiary, #1b3b36);
+
+  &.restaurant {
+    color: var(--text-color-primary);
+
+    h2::before {
+      content: '/';
+      margin-right: 0.1em;
+      color: var(--text-color-secondary);
+    }
+  }
 
   h2 {
     font-size: 1.625rem;

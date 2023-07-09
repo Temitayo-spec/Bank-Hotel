@@ -37,6 +37,18 @@ const Wrapper = styled.div`
   background: url(${vector.src}) no-repeat top left 443px,
     url(${ellipse.src}) no-repeat top right;
   border-top: 1px solid #3f5148;
+
+  @media (min-width: 200px) and (max-width: 767px) {
+    background: url(${vector.src}) no-repeat top left 243px,
+      url(${ellipse.src}) no-repeat top left;
+    background-size: 1px 100%, 65%;
+  }
+
+  @media (min-width: 768px) and (max-width: 1024px) {
+    background: url(${vector.src}) no-repeat top left 460px,
+      url(${ellipse.src}) no-repeat top right;
+    background-size: 1px 100%, 55%;
+  }
 `;
 
 const Inner = styled.div`
@@ -54,6 +66,16 @@ const Title = styled.h1`
   font-size: 7.8125rem;
   font-weight: var(--font-weight-normal);
   line-height: 6.5625rem;
+
+  @media (min-width: 200px) and (max-width: 767px) {
+    font-size: 3.75rem;
+    line-height: 3.75rem;
+  }
+
+  @media (min-width: 768px) and (max-width: 1024px) {
+    font-size: 6.25rem;
+    line-height: 5rem;
+  }
 `;
 
 const Description = styled.div`
@@ -68,6 +90,22 @@ const Description = styled.div`
     text-transform: capitalize;
     flex: 2;
   }
+
+  @media (min-width: 200px) and (max-width: 767px) {
+    flex-direction: column;
+    gap: 2rem;
+    h2 {
+      font-size: 1.5rem;
+      line-height: 1.25rem;
+    }
+  }
+
+  @media (min-width: 768px) and (max-width: 1024px) {
+    h2 {
+      font-size: 1.875rem;
+      text-transform: capitalize;
+    }
+  }
 `;
 
 const SubTextCtn = styled.div`
@@ -80,11 +118,44 @@ const SubTextCtn = styled.div`
     left: -30%;
     object-fit: contain;
   }
+
   p {
     color: var(--text-color-primary, #fffcf6);
     font-family: var(--font-primary);
     font-size: 1.125rem;
     line-height: 1.75rem;
     opacity: 0.8;
+  }
+
+  @media (min-width: 200px) and (max-width: 767px) {
+    img {
+      top: -25%;
+      left: 80%;
+      width: 3.14656rem;
+      height: 4.375rem;
+      transform: rotate(40deg);
+    }
+
+    p {
+      font-size: 0.8125rem;
+      line-height: 1.4375rem;
+      width: 70%;
+      margin-left: auto;
+    }
+  }
+
+  @media (min-width: 768px) and (max-width: 1024px) {
+    img {
+      top: -40%;
+      left: 80%;
+      width: 3.14656rem;
+      height: 4.375rem;
+      transform: rotate(40deg);
+    }
+
+    p {
+      font-size: 0.8125rem;
+      line-height: 1.4375rem;
+    }
   }
 `;

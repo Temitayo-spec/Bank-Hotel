@@ -1,10 +1,12 @@
-import { HeroSection } from '@/components/UI';
+import { HeroSection, SecondSection, ThirdSection } from '@/components/UI';
 import styled from 'styled-components';
 
 const restaurant = () => {
   return (
     <Wrapper>
       <HeroSection />
+      <SecondSection />
+      <ThirdSection />
     </Wrapper>
   );
 };

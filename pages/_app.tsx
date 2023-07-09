@@ -3,7 +3,7 @@ import { GlobalStyle } from '@/utils/GlobalStyle';
 import '@/styles/globals.css';
 import type { AppProps } from 'next/app';
 import { ContactUs, Footer, Header } from '@/components/UI';
-import Navbar from '@/components/UI/Navbar';
+import Navbar from '@/components/General/Navbar';
 // import { useEffect, useState } from 'react';
 
 export default function App({ Component, pageProps }: AppProps) {
