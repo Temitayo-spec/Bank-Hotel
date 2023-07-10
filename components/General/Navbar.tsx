@@ -220,7 +220,7 @@ const Nav = styled.nav`
 
   @media (min-width: 320px) and (max-width: 425px) {
     &.active {
-      animation: slideIn 0.8s forwards cubic-bezier(0.215, 0.61, 0.355, 1) 0.5s;
+      animation: slideIn 0.5s forwards cubic-bezier(0.215, 0.61, 0.355, 1) 0.5s;
 
       @keyframes slideIn {
         0% {
