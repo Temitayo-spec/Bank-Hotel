@@ -63,7 +63,7 @@ export default function App({ Component, pageProps }: AppProps) {
               },
               pageAnimate: {
                 opacity: 1,
-                clipPath: 'circle(100% at 100% 0%)',
+                clipPath: 'circle(143% at 100% 0%)',
               },
               pageExit: {
                 clipPath: 'circle(0% at 100% 0%)',
