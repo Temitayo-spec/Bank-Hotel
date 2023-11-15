@@ -59,11 +59,11 @@ export default function App({ Component, pageProps }: AppProps) {
             variants={{
               pageInitial: {
                 opacity: 0,
-                clipPath: 'circle(0% at 100% 0%)',
+                // clipPath: 'circle(0% at 100% 0%)',
               },
               pageAnimate: {
                 opacity: 1,
-                clipPath: 'circle(143% at 100% 0%)',
+                // clipPath: 'circle(143% at 100% 0%)',
               },
               pageExit: {
                 clipPath: 'circle(0% at 100% 0%)',
