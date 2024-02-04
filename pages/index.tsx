@@ -1,3 +1,4 @@
+import InitialCover from '@/components/General/Preloader';
 import {
   AboutUs,
   Banner,
@@ -21,6 +22,8 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Main>
+        <InitialCover />
+        <Header />
         <Banner />
         <AboutUs />
         <Rooms />

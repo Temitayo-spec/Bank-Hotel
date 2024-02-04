@@ -1,79 +1,105 @@
 import styled from 'styled-components';
+import { motion, useInView } from 'framer-motion';
+import { useEffect, useRef, useState } from 'react';
 
-const Preloader = () => {
+const PreloaderStyled = styled(motion.div)`
+  width: 100vw;
+  height: 100vh;
+  background: url('/images/restaurant/curve.png'), var(--bg-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 9;
+
+  @media (max-width: 768px) {
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+`;
+
+const PreloaderInner = styled(motion.div)`
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+
+  span {
+    font-size: 3.5rem;
+    font-weight: 700;
+    font-family: var(--font-secondary);
+    color: var(--text-color-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.5rem;
+
+    @media (max-width: 768px) {
+      font-size: 2rem;
+      width: 100%;
+    }
+  }
+`;
+
+const InitialCover = () => {
+  const animate = {
+    initial: {
+      y: '100%',
+    },
+    open: (i: number) => ({
+      y: '0%',
+      transition: { duration: 2, delay: 0.1 * i, ease: [0.76, 0, 0.24, 1] },
+    }),
+    exit: (i: number) => ({
+      y: '-100%',
+      transition: { duration: 2, delay: 0.1 * i, ease: [0.76, 0, 0.24, 1] },
+    }),
+  };
+
+  const bgVariant = {
+    hidden: {
+      scaleY: 1,
+    },
+    visible: {
+      scaleY: 0,
+      transformOrigin: 'top',
+      height: 0,
+      transition: { duration: 2, delay: 0.5, ease: [0.76, 0, 0.24, 1] },
+    },
+  };
+
+  const ref = useRef(null);
+  const [triggerExit, setTriggerExit] = useState(false);
+
+  useEffect(() => {
+    // Trigger exit animation after a delay
+    const exitTimeout = setTimeout(() => {
+      setTriggerExit(true);
+    }, 2500); // Change the delay as needed
+
+    return () => clearTimeout(exitTimeout);
+  }, []);
+
   return (
-    <PreloaderStyled>
-      <div className="preloader">
-        <div className="preloader__inner">
-          <div className="preloader__logo">Bank Hotel</div>
-          <div className="preloader__progress"></div>
-        </div>
-      </div>
+    <PreloaderStyled
+      variants={bgVariant}
+      initial="hidden"
+      animate={triggerExit ? 'visible' : ''}
+    >
+      <PreloaderInner ref={ref}>
+        {'Bank Hotel'.split('').map((char, i) => (
+          <motion.span
+            key={i}
+            variants={animate}
+            initial="initial"
+            animate={triggerExit ? 'exit' : 'open'}
+            custom={i}
+          >
+            {char}
+          </motion.span>
+        ))}
+      </PreloaderInner>
     </PreloaderStyled>
   );
 };
 
-export default Preloader;
-
-const PreloaderStyled = styled.div`
-  .preloader {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: url('/images/restaurant/curve.png'), var(--bg-color);
-    z-index: 1000;
-    transition: 0.3s;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    @media (max-width: 768px) {
-      background-size: 100% 100%;
-      background-repeat: no-repeat;
-      background-position: center;
-    }
-    .preloader__inner {
-      position: relative;
-      .preloader__logo {
-        font-size: 3.5rem;
-        font-weight: 700;
-        font-family: var(--font-secondary);
-        color: var(--text-color-secondary);
-        text-transform: uppercase;
-        letter-spacing: 0.5rem;
-        transition: 0.3s;
-
-        @media (max-width: 768px) {
-          font-size: 2rem;
-          width: 100%;
-        }
-      }
-
-      .preloader__progress {
-        width: 4rem;
-        height: 4rem;
-        background: var(--text-color-secondary);
-        position: absolute;
-        top: 100%;
-        left: 0;
-        transition: 0.3s;
-        animation: fillScreen 4s linear forwards;
-        transform-origin: left;
-        @keyframes fillScreen {
-          0% {
-            width: 0;
-            height: 1px;
-            border-radius: 50%;
-            background: var(--text-color-secondary);
-          }
-          100% {
-            width: 100%;
-            height: 1px;
-            border-radius: 0%;
-          }
-        }
-      }
-    }
-  }
-`;
+export default InitialCover;
