@@ -13,7 +13,7 @@ export default function StyledComponentsRegistry({
   const [styledComponentsStyleSheet] = useState(() => new ServerStyleSheet());
 
   useServerInsertedHTML(() => {
-      const styles = styledComponentsStyleSheet.getStyleElement().clearTag();
+      const styles = styledComponentsStyleSheet.getStyleElement();
     styledComponentsStyleSheet.instance;
     return <>{styles}</>;
   });
