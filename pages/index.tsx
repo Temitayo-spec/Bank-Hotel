@@ -3,7 +3,6 @@ import {
   AboutUs,
   Banner,
   BestApartment,
-  ContactUs,
   Header,
   OurFacilities,
   OurGallery,
