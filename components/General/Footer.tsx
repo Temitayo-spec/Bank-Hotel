@@ -37,19 +37,19 @@ const Footer = (): JSX.Element => {
               </p>
             </Reveal>
           </MainText>
-          <SubText
-            className={
-              pathname === '/restaurant' ||
-              pathname === '/restaurant/' ||
-              pathname.includes('/restaurant')
-                ? 'restaurant'
-                : ''
-            }
-          >
-            <Reveal textDelay={1} slideDelay={1}>
+          <Reveal textDelay={1} slideDelay={1}>
+            <SubText
+              className={
+                pathname === '/restaurant' ||
+                pathname === '/restaurant/' ||
+                pathname.includes('/restaurant')
+                  ? 'restaurant'
+                  : ''
+              }
+            >
               ©2021 All rights reserved. BankHotel
-            </Reveal>
-          </SubText>
+            </SubText>
+          </Reveal>
         </AboutUsCtn>
         <News
           className={

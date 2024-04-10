@@ -1,5 +1,5 @@
 {
-  "name": "pocketpal",
+  "name": "bankhotel",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -17,8 +17,9 @@
     "@types/styled-components": "^5.1.34",
     "eslint": "8.35.0",
     "eslint-config-next": "13.2.2",
-    "framer-motion": "^11.0.3",
-    "next": "13.2.2",
+    "framer-motion": "^11.0.25",
+    "gsap": "^3.12.5",
+    "next": "14.0.4",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "styled-components": "^6.1.8",

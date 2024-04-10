@@ -73,3 +73,13 @@ a {
     line-height: 5rem;
   }
 }
+
+.reveal_cover {
+  background-color: #313f38;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: 5;
+  transform-origin: top;
+  top: 0;
+}

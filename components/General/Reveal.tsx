@@ -7,6 +7,7 @@ interface Props {
   textDelay?: number;
   slideDelay?: number;
   overflow?: 'hidden' | 'visible';
+  reference?: null | any;
 }
 
 const Reveal: React.FC<Props> = ({
@@ -15,6 +16,7 @@ const Reveal: React.FC<Props> = ({
   textDelay = 0.25,
   slideDelay = 0,
   overflow = 'hidden',
+  reference = null,
 }) => {
   const controls = useAnimation();
   const slideControls = useAnimation();
@@ -34,23 +36,27 @@ const Reveal: React.FC<Props> = ({
         position: 'relative',
         width: width,
         height: 'fit-content', // 'fit-content' | '100%
-        overflow: overflow,
+        overflow: 'hidden',
       }}
       ref={ref}
     >
       <motion.div
         variants={{
-          hidden: { opacity: 0, y: 75 },
-          visible: { opacity: 1, y: 0 },
+          hidden: { y: 100, opacity: 0 },
+          visible: { y: 0, opacity: 1 },
         }}
         initial="hidden"
         animate={controls}
-        transition={{ duration: 0.5, delay: textDelay }}
+        transition={{
+          duration: 0.6,
+          delay: textDelay,
+          ease: [0.83, 0, 0.17, 1],
+        }}
         style={{ width }}
       >
         {children}
       </motion.div>
-      <motion.div
+      {/* <motion.span
         variants={{
           hidden: { left: 0 },
           visible: { left: '100%' },
@@ -68,7 +74,7 @@ const Reveal: React.FC<Props> = ({
           pointerEvents: 'none',
           zIndex: 200,
         }}
-      />
+      /> */}
     </div>
   );
 };

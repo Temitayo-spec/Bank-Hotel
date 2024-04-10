@@ -1,39 +1,13 @@
-import Image from 'next/image';
-import styled from 'styled-components';
-import line from '@/public/images/best_apartment/line.png';
+import styled from "styled-components";
 import bg from '@/public/images/best_apartment/bg.png';
-import Reveal from '@/components/General/Reveal';
 
-const BestApartment = () => {
-  return (
-    <Wrapper>
-      <Inner>
-        <Reveal>
-          <h1>
-            Best <br /> Apartments
-          </h1>
-        </Reveal>
-        <p>
-          <Reveal textDelay={0.5} slideDelay={0.5}>
-            All room decoration was made with ecological certified and safe
-            materials.
-          </Reveal>
-        </p>
-        <Image src={line} alt="line" />
-      </Inner>
-    </Wrapper>
-  );
-};
-
-export default BestApartment;
-
-const Wrapper = styled.div`
+export const Wrapper = styled.div`
   width: 100%;
   background: url(${bg.src}) no-repeat center, #fff;
   background-size: cover;
 `;
 
-const Inner = styled.div`
+export const Inner = styled.div`
   width: 95%;
   margin: 0 auto;
   padding: 3em 0;

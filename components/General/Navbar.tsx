@@ -15,19 +15,11 @@ const Navbar = () => {
     <Wrapper>
       <Logo>
         <H2>BankHotel</H2>
-        {isMenuOpen ? (
-          <Image
-            src={ic_close}
-            alt="menu"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-          />
-        ) : (
-          <Image
-            src={menu_icon}
-            alt="menu"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-          />
-        )}
+        <Image
+          src={isMenuOpen ? ic_close : menu_icon}
+          alt="menu"
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+        />
       </Logo>
       <Nav className={isMenuOpen ? 'active' : 'inactive'}>
         <ul>
@@ -139,7 +131,7 @@ const Logo = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  flex: 1;
+  flex: 0.5;
 
   img {
     display: none;
@@ -149,6 +141,7 @@ const Logo = styled.div`
     width: 100%;
     padding: 0.3em;
     height: 50px;
+    flex: 1;
     img {
       display: block;
       margin-left: auto;
@@ -171,7 +164,6 @@ const Nav = styled.nav`
   width: 100%;
   display: flex;
   justify-content: space-between;
-  transition: width 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
 
   @media (max-width: 1024px) and (min-width: 320px) {
     position: fixed;
@@ -184,70 +176,23 @@ const Nav = styled.nav`
     background-color: #313f38;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
     overflow: hidden;
-    border-radius: 500px 0 0 500px;
-    &.active {
-      animation: slideIn 0.5s forwards cubic-bezier(0.215, 0.61, 0.355, 1) 0.5s;
+    width: 375px;
+    transform: translateX(100%);
+    transform-origin: right;
+    transition: transform 0.6s cubic-bezier(0.83, 0, 0.17, 1);
 
-      @keyframes slideIn {
-        0% {
-          width: 0;
-          opacity: 0;
-        }
-        100% {
-          width: 375px;
-          border-radius: 0;
-          opacity: 1;
-        }
-      }
+    &.active {
+      transform: translateX(0);
     }
 
     &.inactive {
-      animation: slideOut 0.5s forwards cubic-bezier(0.215, 0.61, 0.355, 1);
-
-      @keyframes slideOut {
-        0% {
-          width: 375px;
-        }
-        100% {
-          width: 0;
-          border-radius: 0;
-          opacity: 0;
-          visibility: hidden;
-        }
-      }
     }
   }
 
   @media (min-width: 320px) and (max-width: 425px) {
     &.active {
-      animation: slideIn 0.5s forwards cubic-bezier(0.215, 0.61, 0.355, 1) 0.5s;
-
-      @keyframes slideIn {
-        0% {
-          width: 0;
-          opacity: 0;
-        }
-        100% {
-          width: 100%;
-          border-radius: 0;
-          opacity: 1;
-        }
-      }
     }
     &.inactive {
-      animation: slideOut 0.8s forwards cubic-bezier(0.215, 0.61, 0.355, 1);
-
-      @keyframes slideOut {
-        0% {
-          width: 100%;
-        }
-        100% {
-          width: 0;
-          border-radius: 0;
-          opacity: 0;
-          visibility: hidden;
-        }
-      }
     }
   }
 
@@ -308,7 +253,7 @@ const Contact = styled.div`
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  flex: 1;
+  flex: 0.5;
   h3 {
     font-family: var(--font-primary);
     font-size: var(--font-size-sm);

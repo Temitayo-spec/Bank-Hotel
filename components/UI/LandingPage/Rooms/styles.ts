@@ -1,82 +1,12 @@
 import styled from 'styled-components';
-import room_left_small from '@/public/images/room_left_small.png';
-import room_right_big from '@/public/images/room_right_big.png';
-import room_btn_default from '@/public/svgs/room_btn_default.svg';
-import star from '@/public/svgs/ic-star.svg';
-import yellow_polygon from '@/public/svgs/yellow_polygon.svg';
-import Image from 'next/image';
-import Reveal from '@/components/General/Reveal';
 
-const Rooms = () => {
-  return (
-    <Wrapper>
-      <Inner>
-        <Header>
-          <Reveal>
-            <h1>Rooms & Apartments</h1>
-          </Reveal>
-          <Reveal textDelay={0.5} slideDelay={0.5}>
-            <p>
-              All room decoration was made with ecological certified and safe
-              materials.
-            </p>
-          </Reveal>
-        </Header>
-        <Main>
-          <LHS>
-            <Image src={room_left_small} alt="room_left_small" />
-            <Image src={room_btn_default} alt="room_btn_default" />
-          </LHS>
-          <Middle>
-            <Year>
-              <Image src={star} alt="star" />
-              <span>Since 1973</span>
-            </Year>
-            <MidTextCtn>
-              <div>
-                <Reveal>
-                  <h2>Superior Twin</h2>
-                </Reveal>
-
-                <Reveal textDelay={0.5} slideDelay={0.5}>
-                  <p>
-                    The Superior twin is perfect for those who plan to stay
-                    long. The spacious and bright room is equipped with deluxe
-                    Italian furniture and has a beautiful view to the historical
-                    part of the city. Stylish interior design and comfortable
-                    beds will make your stay cozy and pleasant.
-                  </p>
-                </Reveal>
-              </div>
-              <RoomOf>
-                <Reveal textDelay={1} slideDelay={1}>
-                  <span>01 </span> / <span>04</span>
-                </Reveal>
-              </RoomOf>
-            </MidTextCtn>
-          </Middle>
-          <RHS>
-            <Image src={room_right_big} alt="room_right_big" />
-            <BookRoomBtn type="button">
-              <Image src={yellow_polygon} alt="yellow_polygon" />
-              <span>Book Room</span>
-            </BookRoomBtn>
-          </RHS>
-        </Main>
-      </Inner>
-    </Wrapper>
-  );
-};
-
-export default Rooms;
-
-const Wrapper = styled.div`
+export const Wrapper = styled.div`
   width: 100%;
   height: 100%;
   background: var(--text-color-primary, #fffcf6);
 `;
 
-const Inner = styled.div`
+export const Inner = styled.div`
   padding: 10em 0;
   width: 95%;
   margin: 0 auto;
@@ -86,9 +16,13 @@ const Inner = styled.div`
   align-items: center;
   gap: 2em;
   border-bottom: 1px solid #d6e1dc;
+
+  @media (max-width: 768px) {
+    padding: 7.4rem 0 4.37rem;
+  }
 `;
 
-const Header = styled.header`
+export const Header = styled.header`
   width: 100%;
   display: grid;
   grid-template-columns: 2.5fr 1fr;
@@ -109,17 +43,17 @@ const Header = styled.header`
     text-transform: uppercase;
   }
 
-  @media (min-width: 200px) and (max-width: 767px) {
+  @media (max-width: 767px) {
     grid-template-columns: 1fr;
     h1 {
       font-size: 3rem;
       line-height: 3.75rem;
     }
 
-    p {
+    .small_text {
       font-size: 0.75rem;
       margin-top: 1.5em;
-      width: 60%;
+      max-width: 10.375rem;
     }
   }
 
@@ -134,7 +68,7 @@ const Header = styled.header`
   }
 `;
 
-const Year = styled.div`
+export const Year = styled.div`
   height: 70px;
   display: flex;
   justify-content: center;
@@ -157,12 +91,12 @@ const Year = styled.div`
   }
 `;
 
-const Main = styled.div`
+export const Main = styled.div`
   width: 100%;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 2em;
-  height: 70vh;
+  height: auto;
 
   @media (min-width: 200px) and (max-width: 767px) {
     height: 100%;
@@ -171,13 +105,18 @@ const Main = styled.div`
   }
 `;
 
-const LHS = styled.div`
+export const LHS = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 
-  @media (min-width: 200px) and (max-width: 767px) {
-    img:first-child {
+  & > div {
+    position: relative;
+    overflow: hidden;
+  }
+
+  @media (max-width: 767px) {
+    & > div {
       display: none;
     }
 
@@ -188,7 +127,7 @@ const LHS = styled.div`
   }
 
   @media (min-width: 768px) and (max-width: 1024px) {
-    img:first-child {
+    & > div {
       display: none;
     }
 
@@ -199,22 +138,32 @@ const LHS = styled.div`
   }
 `;
 
-const Middle = styled.div`
+export const Middle = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-start;
+  gap: 14.69rem;
 
   @media (min-width: 200px) and (max-width: 767px) {
     flex-direction: row;
   }
 `;
 
-const MidTextCtn = styled.div`
+export const MidTextCtn = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  gap: 1em;
+  gap: 6.75em;
+  align-items: flex-start;
+
+  & > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 2.5em;
+    align-items: flex-start;
+  }
 
   h2 {
     color: var(--text-color-tertiary, #1b3b36);
@@ -233,8 +182,12 @@ const MidTextCtn = styled.div`
     line-height: 1.75rem;
   }
 
-  @media (min-width: 200px) and (max-width: 767px) {
+  @media (max-width: 767px) {
     flex-direction: column-reverse;
+
+    & > div {
+      flex-direction: column;
+    }
 
     h2 {
       font-size: 1.875rem;
@@ -253,7 +206,7 @@ const MidTextCtn = styled.div`
   }
 `;
 
-const RoomOf = styled.div`
+export const RoomOf = styled.div`
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -283,16 +236,31 @@ const RoomOf = styled.div`
   }
 `;
 
-const RHS = styled.div`
+export const RHS = styled.div`
   position: relative;
-  img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+
+  & > div {
+    position: relative;
+    overflow: hidden;
+    width: 35.75rem;
+    height: 47.22588rem;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  @media (max-width: 768px) {
+    & > div {
+      width: 100%;
+      height: 26.48294rem;
+    }
   }
 `;
 
-const BookRoomBtn = styled.button`
+export const BookRoomBtn = styled.button`
   position: absolute;
   bottom: 0;
   right: 0;

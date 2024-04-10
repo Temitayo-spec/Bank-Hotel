@@ -1,119 +1,6 @@
-import Image from 'next/image';
 import styled from 'styled-components';
-import star from '@/public/svgs/ic-star.svg';
-import img_1 from '@/public/images/our_facilities/img_1.png';
-import img_2 from '@/public/images/our_facilities/img_2.png';
-import img_3 from '@/public/images/our_facilities/img_3.png';
-import room_btn_default from '@/public/svgs/room_btn_default.svg';
-import row_img_1 from '@/public/images/our_facilities/row_img_1.png';
-import arrow from '@/public/svgs/arrow.svg';
-import row_img_2 from '@/public/images/our_facilities/row_img_2.png';
-import label from '@/public/images/our_facilities/label.svg';
-import Reveal from '@/components/General/Reveal';
 
-const OurFacilities = () => {
-  return (
-    <Wrapper id="facilities">
-      <Inner>
-        <Header>
-          <Reveal>
-            <P>Art & Congress Hall</P>
-          </Reveal>
-          <CustomH1Ctn>
-            <Reveal textDelay={0.5} slideDelay={0.5}>
-              <h1>Our</h1>
-            </Reveal>
-            <Reveal textDelay={1} slideDelay={1}>
-              <h1>Faci</h1>
-            </Reveal>
-            <h1>
-              <Image src={star} alt="star" />
-              <Reveal textDelay={1.5} slideDelay={1.5}>
-                Lities
-              </Reveal>
-            </h1>
-          </CustomH1Ctn>
-          <Image src={img_1} alt="image_1" />
-        </Header>
-        <SectionOne>
-          <ImageCtn>
-            <Image src={label} alt="label" />
-            <Image src={img_2} alt="image_2" />
-          </ImageCtn>
-          <Reveal>
-            <p>
-              Bank Hotel offers you a wide range of additional services and
-              facilities. Visit our restaurant to try exclusive meals, book a
-              conference hall to organize a business meeting, or relax in the
-              art-bar.
-            </p>
-          </Reveal>
-        </SectionOne>
-        <SectionTwo>
-          <LHS>
-            <ButtonCtn>
-              <Image src={room_btn_default} alt="btn_default" />
-            </ButtonCtn>
-            <RoomDetails>
-              <Reveal>
-                <Numbering>01</Numbering>
-              </Reveal>
-              <Info>
-                <Reveal textDelay={0.5} slideDelay={0.5}>
-                  <h2>
-                    Ice <br /> Restaurant
-                  </h2>
-                </Reveal>
-                <Reveal textDelay={1} slideDelay={1}>
-                  <p>
-                    The hotel’s exclusive infrastructure is complemented by the
-                    unique atmosphere of the Safe Restaurant. Author’s menu,
-                    extensive wine card, and live music will set you for the
-                    correct mood.
-                  </p>
-                </Reveal>
-              </Info>
-            </RoomDetails>
-          </LHS>
-          <RHS>
-            <Image src={img_3} alt="image_3" />
-          </RHS>
-        </SectionTwo>
-        <SectionThree>
-          <Row>
-            <Image src={row_img_1} alt="row_img_1" />
-            <h2>
-              <Reveal>
-                <span>02</span>
-              </Reveal>
-              <Reveal textDelay={0.5} slideDelay={0.5}>
-                Conference Hall
-              </Reveal>
-            </h2>
-            <Image src={arrow} alt="arrow" />
-          </Row>
-          <hr />
-          <Row>
-            <Image src={row_img_2} alt="row_img_1" />
-            <h2>
-              <Reveal>
-                <span>03</span>
-              </Reveal>
-              <Reveal textDelay={0.5} slideDelay={0.5}>
-                Wine bar “reserve”
-              </Reveal>
-            </h2>
-            <Image src={arrow} alt="arrow" />
-          </Row>
-          <hr />
-        </SectionThree>
-      </Inner>
-    </Wrapper>
-  );
-};
-export default OurFacilities;
-
-const Wrapper = styled.div`
+export const Wrapper = styled.div`
   width: 100%;
   height: 100%;
   background: var(--text-color-primary, #fffcf6);
@@ -121,7 +8,7 @@ const Wrapper = styled.div`
   border-bottom: 1px solid #313f38;
 `;
 
-const Inner = styled.div`
+export const Inner = styled.div`
   width: 95%;
   margin: 0 auto;
   display: flex;
@@ -131,17 +18,24 @@ const Inner = styled.div`
   gap: 2em;
 `;
 
-const Header = styled.header`
+export const Header = styled.header`
   width: 100%;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   color: var(--text-color-tertiary, #1b3b36);
   gap: 2em;
 
-  img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
+  .image_ctn {
+    position: relative;
+    overflow: hidden;
+    width: 20.9375rem;
+    height: 13.51719rem;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
   }
 
   @media (min-width: 200px) and (max-width: 767px) {
@@ -161,7 +55,7 @@ const Header = styled.header`
   }
 `;
 
-const P = styled.p`
+export const P = styled.p`
   font-size: 1.125rem;
   font-family: var(--font-primary);
   font-weight: var(--font-weight-normal);
@@ -183,9 +77,19 @@ const P = styled.p`
   }
 `;
 
-const CustomH1Ctn = styled.div`
+export const CustomH1Ctn = styled.div`
   display: flex;
   flex-direction: column;
+
+  & > div {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    img {
+      width: 4.41944rem;
+      height: 4.41944rem;
+    }
+  }
 
   h1 {
     font-size: 7.8125rem;
@@ -193,18 +97,6 @@ const CustomH1Ctn = styled.div`
     font-weight: var(--font-weight-normal);
     line-height: 6.5625rem;
     text-transform: uppercase;
-  }
-
-  h1:nth-child(3) {
-    display: flex;
-    align-items: center;
-    gap: 0.5em;
-
-    img {
-      width: 1em;
-      height: 1em;
-      object-fit: cover;
-    }
   }
 
   @media (min-width: 200px) and (max-width: 767px) {
@@ -222,7 +114,7 @@ const CustomH1Ctn = styled.div`
   }
 `;
 
-const SectionOne = styled.section`
+export const SectionOne = styled.section`
   width: 100%;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -267,19 +159,27 @@ const SectionOne = styled.section`
   }
 `;
 
-const ImageCtn = styled.div`
+export const ImageCtn = styled.div`
   width: 100%;
   position: relative;
 
-  img:first-child {
+  & > img {
     position: absolute;
-    right: -40px;
-    z-index: 0;
+    right: -100px;
+    z-index: 1;
+    top: -100px;
   }
 
-  img:last-child {
+  & > div {
     position: relative;
-    z-index: 1;
+    overflow: hidden;
+    width: 20.9375rem;
+    height: 13.51719rem;
+
+    img {
+      width: 100%;
+      height: 100%;
+    }
   }
 
   @media (min-width: 200px) and (max-width: 767px) {
@@ -294,7 +194,7 @@ const ImageCtn = styled.div`
   }
 `;
 
-const SectionTwo = styled.section`
+export const SectionTwo = styled.section`
   width: 100%;
   display: grid;
   grid-template-columns: 2fr 1fr;
@@ -312,13 +212,13 @@ const SectionTwo = styled.section`
   }
 `;
 
-const LHS = styled.div`
+export const LHS = styled.div`
   width: 100%;
   display: flex;
   position: relative;
 `;
 
-const ButtonCtn = styled.div`
+export const ButtonCtn = styled.div`
   flex: 1.5;
 
   img {
@@ -344,7 +244,7 @@ const ButtonCtn = styled.div`
   }
 `;
 
-const RoomDetails = styled.div`
+export const RoomDetails = styled.div`
   flex: 1.5;
   display: flex;
   flex-direction: column;
@@ -355,7 +255,7 @@ const RoomDetails = styled.div`
   }
 `;
 
-const Numbering = styled.h2`
+export const Numbering = styled.h2`
   color: var(--text-color-tertiary, #1b3b36);
   font-size: 3.125rem;
   font-family: var(--font-secondary);
@@ -376,7 +276,7 @@ const Numbering = styled.h2`
   }
 `;
 
-const Info = styled.div`
+export const Info = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -424,11 +324,10 @@ const Info = styled.div`
   }
 `;
 
-const RHS = styled.div`
+export const RHS = styled.div`
   width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  position: relative;
+  overflow: hidden;
 
   img {
     width: 100%;
@@ -437,7 +336,7 @@ const RHS = styled.div`
   }
 `;
 
-const SectionThree = styled.section`
+export const SectionThree = styled.section`
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -449,15 +348,25 @@ const SectionThree = styled.section`
   }
 `;
 
-const Row = styled.div`
+export const Row = styled.div`
   width: 100%;
   display: flex;
-  justify-content: space-between;
   align-items: center;
   gap: 4em;
   padding: 3em 0;
   color: var(--text-color-tertiary, #1b3b36);
   position: relative;
+  cursor: pointer;
+
+  .image_ctn {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .text_ctn {
+    display: flex;
+    align-items: center;
+  }
 
   h2 {
     flex: 2;
@@ -474,16 +383,32 @@ const Row = styled.div`
     }
   }
 
-  img {
-    object-fit: cover;
+  .arrow {
+    transition: all 0.6s ease-in-out;
+    margin-left: auto;
   }
 
-  @media (min-width: 200px) and (max-width: 767px) {
+  &:hover {
+    .arrow {
+      transform: rotate(-45deg);
+    }
+  }
+
+  @media (max-width: 767px) {
     flex-direction: column;
     padding: 1em 0;
     gap: 2em;
 
-    h2 {
+    .text_ctn {
+      & > div {
+        position: static !important;
+        width: fit-content;
+        height: fit-content;
+        overflow: auto;
+      }
+    }
+
+    h2:first-of-type {
       font-size: 1.75rem;
 
       span {
@@ -493,7 +418,7 @@ const Row = styled.div`
       }
     }
 
-    img:last-child {
+    .arrow {
       display: none;
     }
   }

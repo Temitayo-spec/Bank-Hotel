@@ -1,55 +1,7 @@
 import styled from 'styled-components';
-import Image from 'next/image';
-import about_us_img_1 from '@/public/images/about_us_img_1.png';
-import about_us_img_2 from '@/public/images/about_us_img_2.png';
-import about_us_img_3 from '@/public/images/about_us_img_3.png';
-import about_us_label from '@/public/images/about_us_label.png';
 import about_us_lines from '@/public/images/about_us_lines.png';
-import Reveal from '@/components/General/Reveal';
 
-const AboutUs = () => {
-  return (
-    <Wrapper id="about">
-      <Inner>
-        <LHS>
-          <Image src={about_us_img_1} alt="about_us_img_1" />
-        </LHS>
-        <Middle>
-          <TitleCtn>
-            <Reveal overflow="visible">
-              <h1>ABOUT</h1>
-              <h1>US</h1>
-            </Reveal>
-          </TitleCtn>
-          <SubtitleCtn>
-            <Reveal textDelay={0.5} slideDelay={0.5}>
-              <h3>High Quality</h3>
-            </Reveal>
-            <Reveal textDelay={1} slideDelay={1}>
-              <p>
-                The five-star Bank Hotel was reopened to visitors in 2016. The
-                building was renovated and modernized to meet the expectations
-                of the most demanding guests. We offer luxurious rooms, numerous
-                facilities, and exceptional service.
-              </p>
-            </Reveal>
-          </SubtitleCtn>
-        </Middle>
-        <RHS>
-          <MainImgCtn>
-            <Image src={about_us_label} alt="about_us_img_2" />
-            <Image src={about_us_img_2} alt="about_us_img_2" />
-          </MainImgCtn>
-          <Image src={about_us_img_3} alt="about_us_img_3" />
-        </RHS>
-      </Inner>
-    </Wrapper>
-  );
-};
-
-export default AboutUs;
-
-const Wrapper = styled.div`
+export const Wrapper = styled.div`
   width: 100%;
   height: 100%;
   padding: 1em 0 5em;
@@ -61,7 +13,7 @@ const Wrapper = styled.div`
   }
 `;
 
-const Inner = styled.div`
+export const Inner = styled.div`
   width: 95%;
   display: grid;
   grid-template-columns: 2fr 2fr 1fr;
@@ -69,7 +21,7 @@ const Inner = styled.div`
   margin: 0 auto;
   padding: 2em 0;
 
-  @media (min-width: 200px) and (max-width: 767px) {
+  @media (max-width: 767px) {
     display: flex;
     flex-direction: column-reverse;
     gap: 1em;
@@ -77,24 +29,32 @@ const Inner = styled.div`
   }
 `;
 
-const LHS = styled.div`
+export const LHS = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
+  overflow: hidden;
 
-  img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
+  & > div {
+    width: 30.08788rem;
+    height: 42.6245rem;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
   }
 
-  @media (min-width: 200px) and (max-width: 767px) {
-    img {
+  @media (max-width: 767px) {
+    & > div {
+      width: 100%;
+      height: 23.81456rem;
     }
   }
 `;
 
-const Middle = styled.div`
+export const Middle = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -105,7 +65,7 @@ const Middle = styled.div`
   }
 `;
 
-const TitleCtn = styled.div`
+export const TitleCtn = styled.div`
   h1 {
     color: var(--text-color-secondary, #fcd043);
     font-size: 7.8125rem;
@@ -113,6 +73,8 @@ const TitleCtn = styled.div`
     font-weight: 400;
     line-height: 6.5625rem;
     text-transform: uppercase;
+    position: relative;
+    z-index: 10;
     &:first-child {
       margin-left: -250px;
     }
@@ -139,7 +101,7 @@ const TitleCtn = styled.div`
   }
 `;
 
-const SubtitleCtn = styled.div`
+export const SubtitleCtn = styled.div`
   color: var(--text-color-primary, #fffcf6);
   h3 {
     font-size: 2.25rem;
@@ -172,7 +134,7 @@ const SubtitleCtn = styled.div`
   }
 `;
 
-const RHS = styled.div`
+export const RHS = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -191,10 +153,22 @@ const RHS = styled.div`
   }
 `;
 
-const MainImgCtn = styled.div`
+export const MainImgCtn = styled.div`
   position: relative;
 
-  img:nth-child(1) {
+  & > div {
+    width: 15.23938rem;
+    height: 22.92981rem;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  & > img {
     object-fit: contain;
     position: absolute;
     top: -50px;
@@ -209,12 +183,6 @@ const MainImgCtn = styled.div`
         transform: rotate(-360deg);
       }
     }
-  }
-
-  img:nth-child(2) {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
   }
 
   @media (min-width: 768px) and (max-width: 1024px) {
