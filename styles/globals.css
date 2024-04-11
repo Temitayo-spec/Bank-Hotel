@@ -83,3 +83,25 @@ a {
   transform-origin: top;
   top: 0;
 }
+
+.slide__in {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #fcd043;
+  width: 100vw;
+  height: 100vh;
+  transform-origin: bottom;
+  z-index: 14;
+}
+
+.slide__out {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #fcd043;
+  width: 100vw;
+  height: 100vh;
+  transform-origin: top;
+  z-index: 14;
+}

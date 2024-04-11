@@ -1,6 +1,7 @@
+import PageTransition from '@/components/General/PageTransition';
 import { Header, RoomBanner, SectionThree, SectionTwo } from '@/components/UI';
 
-const rooms = () => {
+const Rooms = () => {
   return (
     <div>
       <Header />
@@ -11,4 +12,4 @@ const rooms = () => {
   );
 };
 
-export default rooms;
+export default PageTransition(Rooms);

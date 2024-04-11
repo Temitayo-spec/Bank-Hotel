@@ -145,7 +145,7 @@ const Logo = styled.div`
     img {
       display: block;
       margin-left: auto;
-      z-index: 11;
+      z-index: 8;
       object-fit: contain;
     }
   }
@@ -156,7 +156,7 @@ const H2 = styled.h2`
   font-size: var(--font-size-xl);
   font-weight: var(--font-weight-medium);
   color: var(--text-color-primary);
-  z-index: 11;
+  z-index: 8;
 `;
 
 const Nav = styled.nav`
@@ -172,7 +172,7 @@ const Nav = styled.nav`
     flex-direction: column;
     width: 0;
     height: 100%;
-    z-index: 10;
+    z-index: 7;
     background-color: #313f38;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
     overflow: hidden;

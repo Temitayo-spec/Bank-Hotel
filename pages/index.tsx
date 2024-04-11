@@ -1,3 +1,4 @@
+import PageTransition from '@/components/General/PageTransition';
 import InitialCover from '@/components/General/Preloader';
 import {
   AboutUs,
@@ -11,7 +12,7 @@ import {
 import Head from 'next/head';
 import styled from 'styled-components';
 
-export default function Home() {
+const Home = () => {
   return (
     <>
       <Head>
@@ -24,7 +25,6 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Main>
-        <InitialCover />
         <Header />
         <Banner />
         <AboutUs />
@@ -35,7 +35,9 @@ export default function Home() {
       </Main>
     </>
   );
-}
+};
+
+export default PageTransition(Home);
 
 const Main = styled.main`
   min-height: 100vh;

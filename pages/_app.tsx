@@ -3,6 +3,8 @@ import type { AppProps } from 'next/app';
 import { ContactUs, Footer } from '@/components/UI';
 import ReactLenis from '@studio-freight/react-lenis';
 import { GlobalStyle } from '@/utils/GlobalStyle';
+import Preloader from '@/components/General/Preloader';
+import { AnimatePresence, motion } from 'framer-motion';
 // import StyledComponentsRegistry from '@/libs/registry';
 
 export default function App({ Component, pageProps, router }: AppProps) {
@@ -13,7 +15,10 @@ export default function App({ Component, pageProps, router }: AppProps) {
       easing={(t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t))}
     >
       <GlobalStyle />
-      <Component {...pageProps} />
+      <Preloader />
+      <AnimatePresence mode="wait">
+        <Component {...pageProps} key={router.route} />
+      </AnimatePresence>
       <ContactUs />
       <Footer />
     </ReactLenis>

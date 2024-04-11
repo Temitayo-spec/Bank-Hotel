@@ -1,7 +1,8 @@
+import PageTransition from '@/components/General/PageTransition';
 import { Header, HeroSection, SecondSection, ThirdSection } from '@/components/UI';
 import styled from 'styled-components';
 
-const restaurant = () => {
+const Restaurant = () => {
   return (
     <Wrapper>
       <Header />
@@ -12,7 +13,7 @@ const restaurant = () => {
   );
 };
 
-export default restaurant;
+export default PageTransition(Restaurant);
 
 const Wrapper = styled.div`
   width: 100%;
