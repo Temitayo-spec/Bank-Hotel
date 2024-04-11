@@ -279,7 +279,7 @@ export const Loader = styled.div`
   clip-path: polygon(0 100%, 100% 100%, 100% 0, 0 0);
   z-index: 20;
   transition: clip-path 1s ease;
-`
+`;
 
 export const ImageCtn = styled.div`
   position: absolute;
@@ -312,10 +312,14 @@ export const Overlay = styled.div`
   display: flex;
   justify-content: space-between;
   padding: 2rem 1rem;
+
+  flex-direction: column;
+  @media (max-width: 768px) {
+  }
 `;
 
 export const Col = styled.div`
-  width: 50%;
+  width: 100%;
   div {
     margin: 0;
     clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
@@ -327,6 +331,7 @@ export const Col = styled.div`
   &:last-of-type {
     display: flex;
     align-self: flex-end;
+    width: 50%;
     div {
       font-size: 24px;
       h2 {
@@ -335,6 +340,16 @@ export const Col = styled.div`
       h2 span {
         color: #1b3b36;
       }
+    }
+  }
+
+  @media (max-width: 768px) {
+    div {
+      font-size: 20px;
+    }
+
+    &:last-of-type {
+      width: 100%;
     }
   }
 `;
