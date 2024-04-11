@@ -2,15 +2,27 @@ import Image from 'next/image';
 import styled from 'styled-components';
 import menu_icon from '@/public/svgs/menu_icon.svg';
 import ic_close from '@/public/svgs/ic_close.svg';
-import { useState } from 'react';
+import { SetStateAction, useEffect, useState } from 'react';
 import Link from 'next/link';
 import ic_star from '@/public/svgs/ic-star.svg';
 import { useRouter } from 'next/router';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [activeNav, setActiveNav] = useState('home');
+  const [activeNav, setActiveNav] = useState('');
   const { pathname } = useRouter();
+
+  const handleNavClick = (navItem: SetStateAction<string>) => {
+    setActiveNav(navItem);
+    setIsMenuOpen(false);
+  };
+
+  useEffect(() => {
+    if (pathname === '/') {
+      setActiveNav('home');
+    }
+  }, [pathname]);
+
   return (
     <Wrapper>
       <Logo>
@@ -24,91 +36,62 @@ const Navbar = () => {
       <Nav className={isMenuOpen ? 'active' : 'inactive'}>
         <ul>
           <li>
-            <Link
-              href="/"
-              onClick={() => {
-                setActiveNav('home');
-                setIsMenuOpen(false);
-              }}
-            >
+            <Link href="/" passHref onClick={() => handleNavClick('home')}>
               Home
+              {activeNav === 'home' && <Image src={ic_star} alt="star" />}
             </Link>
-            {activeNav === 'home' && <Image src={ic_star} alt="star" />}
           </li>
-          {pathname === '/' && (
-            <li>
-              <a
-                href="#about"
-                onClick={() => {
-                  setActiveNav('about');
-                  setIsMenuOpen(false);
-                }}
-              >
-                About
-              </a>
-              {activeNav === 'about' && <Image src={ic_star} alt="star" />}
-            </li>
-          )}
           <li>
             <Link
               href="/rooms"
-              onClick={() => {
-                setActiveNav('rooms');
-                setIsMenuOpen(false);
-              }}
+              passHref
+              onClick={() => handleNavClick('rooms')}
             >
               Rooms
+              {pathname.startsWith('/rooms') && (
+                <Image src={ic_star} alt="star" />
+              )}
             </Link>
-            {pathname === '/rooms' && <Image src={ic_star} alt="star" />}
           </li>
           <li>
             <Link
               href="/restaurant"
-              onClick={() => {
-                setActiveNav('restaurant');
-                setIsMenuOpen(false);
-              }}
+              onClick={() => handleNavClick('restaurant')}
             >
               Restaurant
+              {pathname === '/restaurant' && <Image src={ic_star} alt="star" />}
             </Link>
-            {pathname === '/restaurant' && <Image src={ic_star} alt="star" />}
           </li>
-          {pathname === '/' && (
-            <li>
-              <a
-                href="#facilities"
-                onClick={() => {
-                  setActiveNav('facilities');
-                  setIsMenuOpen(false);
-                }}
-              >
-                Conference Hall
-              </a>
-              {activeNav === 'facilities' && <Image src={ic_star} alt="star" />}
-            </li>
-          )}
           <li>
-            <a
-              href="#contacts"
-              onClick={() => {
-                setActiveNav('contacts');
-                setIsMenuOpen(false);
-              }}
+            <Link
+              href="/#facilities"
+              passHref
+              onClick={() => handleNavClick('facilities')}
+            >
+              Conference Hall
+              {pathname === '/' && activeNav === 'facilities' && (
+                <Image src={ic_star} alt="star" />
+              )}
+            </Link>
+          </li>
+          <li>
+            <Link
+              href="/#contacts"
+              passHref
+              onClick={() => handleNavClick('contacts')}
             >
               Contacts
-            </a>
-            {activeNav === 'contacts' && <Image src={ic_star} alt="star" />}
+              {activeNav === 'contacts' && <Image src={ic_star} alt="star" />}
+            </Link>
           </li>
         </ul>
         <Contact>
           <h3>+38 032 297 50 20</h3>
-
-          <h2>8 Lystopadovoho chynu, lviv</h2>
-
+          <h2>8 Lystopadovoho chynu, Lviv</h2>
           <Socials>
-            <a href="#">Facebook</a>
-            <a href="#">Instagram</a>
-            <a href="#">Twitter</a>
+            <Link href="#">Facebook</Link>
+            <Link href="#">Instagram</Link>
+            <Link href="#">Twitter</Link>
           </Socials>
         </Contact>
       </Nav>
