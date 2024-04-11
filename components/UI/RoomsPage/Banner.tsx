@@ -3,25 +3,56 @@ import Image from 'next/image';
 import big_banner from '@/public/images/rooms/big_banner.png';
 import yellow_polygon from '@/public/svgs/yellow_polygon.svg';
 import Reveal from '@/components/General/Reveal';
+import { useLayoutEffect, useRef } from 'react';
+import gsap from 'gsap';
+import ScrollTrigger from 'gsap/dist/ScrollTrigger';
+import RevealCover, { ImageDiv } from '@/components/General/ImageReveal';
+import useIsMobile from '@/libs/useIsMobile';
+gsap.registerPlugin(ScrollTrigger);
 
 const Banner = () => {
+  const container = useRef<HTMLDivElement | null>(null);
+  const title = useRef<HTMLHeadingElement | null>(null);
+  const text = useRef<HTMLHeadingElement | null>(null);
+  const imageOne = useRef<HTMLHeadingElement | null>(null);
+  const isMobile = useIsMobile();
+
+  useLayoutEffect(() => {
+    if (isMobile) return;
+    const context = gsap.context(() => {
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: container.current,
+          start: 'top bottom',
+          end: 'bottom top',
+          scrub: true,
+        },
+      });
+
+      tl.to(title.current, { y: -30 }, 0);
+      tl.to(text.current, { y: -50 }, 0);
+      tl.to(imageOne.current, { y: -80 }, 0);
+    });
+
+    return () => context.revert();
+  }, [isMobile]);
   return (
-    <Wrapper>
+    <Wrapper ref={container}>
       <Inner>
         <TextContent>
-          <h1>
+          <h1 ref={title}>
             <Reveal>Superior</Reveal>
             <Reveal textDelay={0.5} slideDelay={0.5}>
               <span>twin</span>
             </Reveal>
           </h1>
-          <Flex>
-            <p>
-              <Reveal textDelay={1} slideDelay={1}>
+          <Flex ref={text}>
+            <Reveal textDelay={1} slideDelay={1}>
+              <p>
                 All room decoration was made with ecological certified and safe
                 materials.
-              </Reveal>
-            </p>
+              </p>
+            </Reveal>
             <BookRoomBtn type="button">
               <Image src={yellow_polygon} alt="yellow_polygon" />
               <span>Book Room</span>

@@ -1,10 +1,19 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 import bg from '@/public/images/best_apartment/bg.png';
 
 export const Wrapper = styled.div`
   width: 100%;
   background: url(${bg.src}) no-repeat center, #fff;
   background-size: cover;
+  height: 50.625rem;
+
+  @media (min-width: 768px) and (max-width: 1024px) {
+    height: 40.5625rem;
+  }
+
+  @media (max-width: 767px) {
+    height: 56rem;
+  }
 `;
 
 export const Inner = styled.div`
@@ -12,6 +21,9 @@ export const Inner = styled.div`
   margin: 0 auto;
   padding: 3em 0;
   position: relative;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 
   color: var(--text-secondary-color, #fcd043);
   h1 {
@@ -27,18 +39,21 @@ export const Inner = styled.div`
     font-family: var(--font-primary);
     font-weight: var(--font-weight-normal);
     text-transform: uppercase;
-    width: 20%;
-    position: absolute;
-    top: 60%;
+    max-width: 15.4375rem;
+    margin-top: 12.63rem;
   }
 
   img {
-    width: 100%;
+    width: 100vw;
     object-fit: cover;
     margin-left: -2.5em;
+    position: absolute;
+
+    bottom: 50px;
   }
 
-  @media (min-width: 200px) and (max-width: 767px) {
+  @media (max-width: 767px) {
+    justify-content: space-between;
     h1 {
       font-size: 3rem;
       line-height: 3.75rem;
@@ -46,16 +61,14 @@ export const Inner = styled.div`
 
     p {
       font-size: 1.125rem;
-      bottom: 0px;
-      right: 20px;
-      width: 60%;
+      margin-left: 8rem;
     }
 
     img {
       width: 100%;
       object-fit: contain;
-      margin-top: -10em;
-      margin-left: 0;
+
+      bottom: 300px;
     }
   }
 `;

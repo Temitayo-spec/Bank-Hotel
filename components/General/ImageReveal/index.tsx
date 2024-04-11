@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { useRouter } from 'next/router';
 const variant = {
   hidden: {
     height: '100%',
@@ -26,6 +27,7 @@ export const imageVariants = {
 };
 
 const RevealCover = ({ bgColor }: { bgColor?: string }) => {
+  const { pathname } = useRouter();
   return (
     <motion.div
       className="reveal_cover"

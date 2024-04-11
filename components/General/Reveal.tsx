@@ -31,7 +31,7 @@ const Reveal: React.FC<Props> = ({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [inView]);
   return (
-    <div
+    <span
       style={{
         position: 'relative',
         width: width,
@@ -40,7 +40,7 @@ const Reveal: React.FC<Props> = ({
       }}
       ref={ref}
     >
-      <motion.div
+      <motion.span
         variants={{
           hidden: { y: 100, opacity: 0 },
           visible: { y: 0, opacity: 1 },
@@ -52,10 +52,10 @@ const Reveal: React.FC<Props> = ({
           delay: textDelay,
           ease: [0.83, 0, 0.17, 1],
         }}
-        style={{ width }}
+        style={{ width, height: '100%', display: 'inline' }}
       >
         {children}
-      </motion.div>
+      </motion.span>
       {/* <motion.span
         variants={{
           hidden: { left: 0 },
@@ -75,7 +75,7 @@ const Reveal: React.FC<Props> = ({
           zIndex: 200,
         }}
       /> */}
-    </div>
+    </span>
   );
 };
 

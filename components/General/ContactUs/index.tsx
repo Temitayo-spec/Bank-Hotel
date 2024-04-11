@@ -98,7 +98,9 @@ const ContactUs = () => {
         <AbsoluteImages>
           <div ref={imageOne}>
             <div>
-              <RevealCover bgColor="#fffcf6" />
+              <RevealCover
+                bgColor={pathname === '/restaurant' ? '' : '#fffcf6'}
+              />
               <ImageDiv>
                 <Image src={contact_us_img} alt="contact_us_img" />
               </ImageDiv>

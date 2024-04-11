@@ -3,13 +3,23 @@ import restaurant_img_1 from '@/public/images/restaurant/restaurant_img_1.png';
 import restaurant_img_2 from '@/public/images/restaurant/restaurant_img_2.png';
 import Image from 'next/image';
 import Reveal from '@/components/General/Reveal';
+import RevealCover, { ImageDiv } from '@/components/General/ImageReveal';
 
 const SecondSection = () => {
   return (
     <Wrapper>
       <Inner>
         <LHS>
-          <Image src={restaurant_img_1} alt="restaurant_img_1" />
+          <div className="container">
+            <RevealCover />
+            <ImageDiv>
+              <Image
+                src={restaurant_img_1}
+                alt="restaurant_img_1"
+                quality={100}
+              />
+            </ImageDiv>
+          </div>
           <TextCtn>
             <Reveal>
               <h2>at your service</h2>
@@ -27,7 +37,16 @@ const SecondSection = () => {
           </TextCtn>
         </LHS>
         <RHS>
-          <Image src={restaurant_img_2} alt="restaurant_img_2" />
+          <div className="container">
+            <RevealCover />
+            <ImageDiv>
+              <Image
+                src={restaurant_img_2}
+                alt="restaurant_img_2"
+                quality={100}
+              />
+            </ImageDiv>
+          </div>
         </RHS>
       </Inner>
       <hr />
@@ -73,6 +92,15 @@ const LHS = styled.div`
   display: flex;
   flex-direction: column;
   gap: 3em;
+
+  .container {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+  }
 
   img {
     width: 100%;
@@ -137,6 +165,15 @@ const TextCtn = styled.div`
 const RHS = styled.div`
   flex: 1;
   display: flex;
+
+  .container {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+  }
 
   img {
     width: 100%;

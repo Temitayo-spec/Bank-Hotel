@@ -5,15 +5,52 @@ import twin_img1 from '@/public/images/rooms/twin_img1.png';
 import twin_img2 from '@/public/images/rooms/twin_img2.png';
 import yellow_polygon from '@/public/svgs/yellow_polygon.svg';
 import Reveal from '@/components/General/Reveal';
+import { useLayoutEffect, useRef } from 'react';
+import gsap from 'gsap';
+import ScrollTrigger from 'gsap/dist/ScrollTrigger';
+import RevealCover, { ImageDiv } from '@/components/General/ImageReveal';
+import useIsMobile from '@/libs/useIsMobile';
+
+gsap.registerPlugin(ScrollTrigger);
 
 const SectionThree = () => {
+  const container = useRef<HTMLDivElement | null>(null);
+  const title = useRef<HTMLHeadingElement | null>(null);
+  const text = useRef<HTMLHeadingElement | null>(null);
+  const imageOne = useRef<HTMLHeadingElement | null>(null);
+  const isMobile = useIsMobile();
+
+  useLayoutEffect(() => {
+    if (isMobile) return;
+    const context = gsap.context(() => {
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: container.current,
+          start: 'top bottom',
+          end: 'bottom top',
+          scrub: true,
+        },
+      });
+
+      tl.to(title.current, { y: -30 }, 0);
+      tl.to(text.current, { y: -50 }, 0);
+      tl.to(imageOne.current, { y: -80 }, 0);
+    });
+
+    return () => context.revert();
+  }, [isMobile]);
   return (
     <Wrapper>
       <Inner>
         <Image src={label} alt="label" />
         <Grid>
           <GridItems>
-            <Image src={twin_img1} alt="twin_img1" />
+            <div className="container">
+              <RevealCover bgColor="#fffcf6" />
+              <ImageDiv>
+                <Image src={twin_img1} alt="twin_img1" quality={100} />
+              </ImageDiv>
+            </div>
             <div>
               <h2>
                 <Reveal>Superior Twin</Reveal>
@@ -28,17 +65,22 @@ const SectionThree = () => {
             </div>
           </GridItems>
           <GridItems>
-            <Image src={twin_img2} alt="twin_img1" />
-            <p>
-              <Reveal textDelay={0.75} slideDelay={0.75}>
+            <div className="container">
+              <RevealCover bgColor="#fffcf6" />
+              <ImageDiv>
+                <Image src={twin_img2} alt="twin_img1" quality={100} />
+              </ImageDiv>
+            </div>
+            <Reveal textDelay={0.75} slideDelay={0.75}>
+              <p>
                 The Superior twin includes two functional zones: a living room
                 with the best Italian furniture, and an isolated cozy bedroom
                 with a large bed. Here, you will find space both for work and
                 comfortable rest. Hotel offers supreme comfort and outstanding
                 24-hour room service to make sure that the time you spend here
                 is enjoyable and pleasant.
-              </Reveal>
-            </p>
+              </p>
+            </Reveal>
           </GridItems>
         </Grid>
       </Inner>
@@ -112,7 +154,16 @@ const GridItems = styled.div`
   color: var(--text-color-tertiary, #1b3b36);
   gap: 2em;
 
-  & > div {
+  .container {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+  }
+
+  div:last-of-type {
     display: flex;
     flex-direction: column;
     gap: 2.5em;
@@ -146,7 +197,7 @@ const GridItems = styled.div`
     flex-direction: column-reverse;
     gap: 1.5em;
 
-    & > div {
+    div:last-of-type {
       gap: 1.5em;
     }
 

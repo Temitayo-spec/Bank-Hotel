@@ -3,6 +3,7 @@ import restaurant_img_3 from '@/public/images/restaurant/restaurant_img_3.png';
 import restaurant_img_4 from '@/public/images/restaurant/restaurant_img_4.png';
 import Image from 'next/image';
 import Reveal from '@/components/General/Reveal';
+import RevealCover, { ImageDiv } from '@/components/General/ImageReveal';
 
 const ThirdSection = () => {
   return (
@@ -19,7 +20,16 @@ const ThirdSection = () => {
         </Header>
         <Grid>
           <GridItem>
-            <Image src={restaurant_img_3} alt="restaurant_img_3" />
+            <div className="container">
+              <RevealCover />
+              <ImageDiv>
+                <Image
+                  src={restaurant_img_3}
+                  alt="restaurant_img_3"
+                  quality={100}
+                />
+              </ImageDiv>
+            </div>
             <Reveal>
               <h3>
                 All room decoration was made with ecological certified and safe
@@ -28,7 +38,16 @@ const ThirdSection = () => {
             </Reveal>
           </GridItem>
           <GridItem>
-            <Image src={restaurant_img_4} alt="restaurant_img_4" />
+            <div className="container">
+              <RevealCover />
+              <ImageDiv>
+                <Image
+                  src={restaurant_img_4}
+                  alt="restaurant_img_4"
+                  quality={100}
+                />
+              </ImageDiv>
+            </div>
             <TextCtn>
               <Reveal textDelay={0.5} slideDelay={0.5}>
                 <h2>
@@ -122,6 +141,15 @@ const GridItem = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1.5em;
+
+  .container {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+  }
 
   img {
     width: 100%;

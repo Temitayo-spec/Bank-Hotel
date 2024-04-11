@@ -4,32 +4,65 @@ import Image from 'next/image';
 import section_two_img from '@/public/images/rooms/section_two_img.png';
 import curve from '@/public/images/rooms/Curve.svg';
 import Reveal from '@/components/General/Reveal';
+import { useLayoutEffect, useRef } from 'react';
+import gsap from 'gsap';
+import ScrollTrigger from 'gsap/dist/ScrollTrigger';
+import RevealCover, { ImageDiv } from '@/components/General/ImageReveal';
+import useIsMobile from '@/libs/useIsMobile';
+
+gsap.registerPlugin(ScrollTrigger);
 
 const SectionTwo = () => {
+  const container = useRef<HTMLDivElement | null>(null);
+  const title = useRef<HTMLHeadingElement | null>(null);
+  const text = useRef<HTMLParagraphElement | null>(null);
+  const imageOne = useRef<HTMLHeadingElement | null>(null);
+  const isMobile = useIsMobile();
+
+  useLayoutEffect(() => {
+    if (isMobile) return;
+    const context = gsap.context(() => {
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: container.current,
+          start: 'top bottom',
+          end: 'bottom top',
+          scrub: true,
+        },
+      });
+
+      tl.to(title.current, { y: -100 }, 0);
+      tl.to(text.current, { y: -70 }, 0);
+      tl.to(imageOne.current, { y: -80 }, 0);
+    });
+
+    return () => context.revert();
+  }, [isMobile]);
+
   return (
-    <Wrapper>
+    <Wrapper ref={container}>
       <Inner>
-        <Year>
+        <Year ref={imageOne}>
           <Image src={star} alt="star" />
           <span>Since 1973</span>
         </Year>
         <FlexTextCtn>
-          <Reveal>
-            <h2>
+          <h2 ref={title}>
+            <Reveal>
               All suites have a unique design because we want our every guest to
               feel special.
-            </h2>
-          </Reveal>
-          <Reveal textDelay={0.5} slideDelay={0.5}>
-            <p>
+            </Reveal>
+          </h2>
+          <p ref={text}>
+            <Reveal textDelay={0.5} slideDelay={0.5}>
               The Superior twin would perfectly match the needs of those who
               plan to stay long. The bright and airy room is equipped with
               superior soft Italian furniture. Large windows open a beautiful
               view to the historical part of the city. Contemporary interior
               design and comfortable beds will make your stay cozy and
               delightful.
-            </p>
-          </Reveal>
+            </Reveal>
+          </p>
         </FlexTextCtn>
         <AbsoluteImage>
           <Image src={curve} alt="curve" />
@@ -39,7 +72,12 @@ const SectionTwo = () => {
             Premier Standard
           </Reveal>
         </h2>
-        <Image src={section_two_img} alt="section_two_img" />
+        <div className='container'>
+          <RevealCover />
+          <ImageDiv>
+            <Image src={section_two_img} alt="section_two_img" quality={100} />
+          </ImageDiv>
+        </div>
       </Inner>
     </Wrapper>
   );
@@ -75,12 +113,14 @@ const Inner = styled.div`
     margin: 3em 0 2em;
   }
 
-  img:last-child {
+
+  .container {
     width: 100%;
     height: 100%;
     object-fit: cover;
     position: relative;
     z-index: 1;
+    overflow: hidden;
   }
 
   @media (min-width: 200px) and (max-width: 767px) {
@@ -89,7 +129,7 @@ const Inner = styled.div`
       font-size: 1.25rem;
     }
 
-    img:last-child {
+    .container {
       width: 100%;
       object-fit: cover;
       height: 26.721rem;
